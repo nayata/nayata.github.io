@@ -9,7 +9,7 @@ permalink: /editor/
 <center><video width="100%" autoplay muted loop><source src="/media/preview.mp4" type="video/mp4"></video></center>
 <p></p>
 
-Heaps Editor is an open-source 2D editor designed for quick and easy level creation, especially suited for non-grid-based physics. The editor also supports images, texture atlases, grid layers for pathfinding or grid-based collisions and the creation of pathways for objects.
+[Heaps Editor](https://github.com/nayata/editor) is an open-source 2D editor designed for quick and easy level creation, especially suited for non-grid-based physics. The editor also supports images, texture atlases, grid layers for pathfinding or grid-based collisions and the creation of pathways for objects.
 
 ## Layers
 Each scene supports multiple layers with different types.
@@ -109,7 +109,7 @@ Below is a simplified example of a typical editor scene file:
 - **cellX** - x index of the grid cell
 - **cellY** - y index of the grid cell
 
-The **typedef** for the all types you can find in Project parser file.
+The **typedef** for the all types you can find in [Project parser file](https://github.com/nayata/editor/blob/main/examples/Project.hx).
 
 ## Limitations
 - No undo/redo functions.
@@ -119,4 +119,4 @@ The **typedef** for the all types you can find in Project parser file.
 In the **examples** folder you can find various examples of how to parse and use scenes created with the editor.
 
 ## Download
-You can download Heaps Editor on the project page.
+You can download Heaps Editor on the [project page](https://github.com/nayata/editor/releases).
