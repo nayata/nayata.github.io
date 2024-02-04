@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Heaps Editor"
-author: "Chester"
+author: "Nayata"
 description: "Minimal 2D editor written in Haxe Heaps"
 permalink: /editor/
 ---
@@ -9,7 +9,7 @@ permalink: /editor/
 <center><video width="100%" autoplay muted loop><source src="/media/preview.mp4" type="video/mp4"></video></center>
 <p></p>
 
-Hexen is an open-source 2D editor designed for quick and easy level creation, especially suited for non-grid-based physics. The editor also supports images, texture atlases, grid layers for pathfinding or grid-based collisions and the creation of pathways for objects.
+Heaps Editor is an open-source 2D editor designed for quick and easy level creation, especially suited for non-grid-based physics. The editor also supports images, texture atlases, grid layers for pathfinding or grid-based collisions and the creation of pathways for objects.
 
 ## Layers
 Each scene supports multiple layers with different types.
@@ -37,7 +37,7 @@ Each scene supports multiple layers with different types.
 ![Editor Tools](/media/editing.png "Editor Tools")
 
 ## Example
-<center><video width="100%" autoplay muted loop><source src="/media/editing.mp4" type="video/mp4"></video></center>
+<center><video width="100%" autoplay muted loop controls><source src="/media/editing.mp4" type="video/mp4"></video></center>
 <p></p>
 
 ## JSON structure
