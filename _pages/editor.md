@@ -28,10 +28,13 @@ Each scene supports multiple layers with different types.
 
 
 ## Tools
+![Editor Tools](/media/tools.png "Editor Tools")
 
 ## Mouse control
+![Editor Tools](/media/mouse.png "Editor Tools")
 
 ## Object editing
+![Editor Tools](/media/editing.png "Editor Tools")
 
 ## Example
 <center><video width="100%" autoplay muted loop><source src="/media/editing.mp4" type="video/mp4"></video></center>
@@ -108,7 +111,7 @@ Below is a simplified example of a typical editor scene file:
 
 The **typedef** for the all types you can find in Project parser file.
 
-## Restrictions
+## Limitations
 - No undo/redo functions.
 - The JSON scene file should be in the root of the assets folder if you are using images or texture atlases.
 
