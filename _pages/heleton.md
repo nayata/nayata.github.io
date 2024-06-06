@@ -117,9 +117,9 @@ For safe usage, all tweens have an overwrite mechanism — older tweens with the
 
 ```haxe
 tween.add(image.alpha, 0, 5); // This will be overrited by next tween.
-tween.add(image.alpha, 1, 5); // This will be tweened sucesfully.
-tween.add(image.alpha, 0, 5, 10); // This will be tweened sucesfully due delay.
-tween.add(image.x, 0, 5); // This will be tweened sucesfully due another setter.
+tween.add(image.alpha, 1, 5); // This will be tweened successfully.
+tween.add(image.alpha, 0, 5, 10); // This will be tweened successfully due delay.
+tween.add(image.x, 0, 5); // This will be tweened successfully due another setter.
 ```
 
 Within your scene, you have a reference to the tween instance from `App` for easier use, but you can create other instances as needed.
