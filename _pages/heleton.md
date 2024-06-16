@@ -80,7 +80,7 @@ class Game extends heaps.Scene {
 `heaps.Scene` inherits from `h2d.Layers`. The application handles all scene transitions using `Transition`.
 
 
-## Transition
+# Transition
 
 `heaps.Transition` are where things can get wild if you modify them without understanding the underlying mechanics.
 
@@ -94,7 +94,7 @@ You can specify the `Transition` fade time/interval:
 `Transition` uses its own basic animation mechanics. For more complex animations, Heleton includes the `Animate` engine.
 
 
-## Animate
+# Animate
 
 <center><video width="100%" autoplay muted loop><source src="/media/tween.mp4" type="video/mp4"></video></center>
 <p></p>
@@ -155,7 +155,7 @@ tween.add(image.x, 0, 5); // This will be tweened successfully due another sette
 Within your scene, you have a reference to the tween instance from `App` for easier use, but you can create other instances as needed — [pausable tweens example](https://github.com/nayata/heleton/tree/main/examples/pausable).
 
 
-## Screen
+# Screen
 
 <center><video width="100%" autoplay muted loop><source src="/media/screen.mp4" type="video/mp4"></video></center>
 <p></p>
@@ -167,7 +167,7 @@ Main idea is to use separate resize for the background and game screen or for th
 After window resize `App` updates `heaps.Screen` to recalculate all important information and you can use this information for custom resize logic.
 
 
-## Stats
+# Stats
 
 `heaps.Stats` can add a panel to display the game's FPS, draw calls, and memory usage. The stats panel is added on top of the hierarchy above the `Transition` screen.
 
@@ -198,7 +198,7 @@ heaps.Stats.hide();
 
 
 
-## Device
+# Device
 
 `heaps.Device` is a simple way to check where your game is running.
 
@@ -207,23 +207,23 @@ heaps.Stats.hide();
 - **web:** returns `true` if the game is running in a desktop browser.
 
 
-## Configuring Heleton
+# Configuring Heleton
 
 **Heleton** requires minimal configuration. All you need to specify is the game's initial scene, the target resolution for your game if you plan to use custom resizing, and if necessary, the `Transition` fade time/interval.
 
 
-## Demo
+# Demo
 
 [Example with touch support](https://nayata.itch.io/mobile)  
 [Responsive game example](https://nayata.itch.io/responsive)
 
 
-## GitHub
+# GitHub
 
 [github.com/nayata/heleton](https://github.com/nayata/heleton)
 
 
-## Examples
+# Examples
 [scenes](https://github.com/nayata/heleton/tree/main/examples/scenes) — basic scene switching.  
 [mobile](https://github.com/nayata/heleton/tree/main/examples/mobile) — web example with touch support.  
 [responsive](https://github.com/nayata/heleton/tree/main/examples/responsive) — responsive game example.  
