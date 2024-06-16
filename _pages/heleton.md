@@ -75,7 +75,7 @@ class Game extends heaps.Scene {
 }
 ```
 
-`dt:Float` from `update` can be used to adjust values that are FPS dependent, such as velocities or accelerations. See how the `dt` is used in a mobile example.
+`dt:Float` from `update` can be used to adjust values that are FPS dependent, such as velocities or accelerations. See how the `dt` is used in a [mobile example](https://github.com/nayata/heleton/tree/main/examples/mobile).
 
 `heaps.Scene` inherits from `h2d.Layers`. The application handles all scene transitions using `Transition`.
 
@@ -84,7 +84,7 @@ class Game extends heaps.Scene {
 
 `heaps.Transition` are where things can get wild if you modify them without understanding the underlying mechanics.
 
-The purpose of a `Transition` is to gradually fade in/out a black bitmap image, lock/unlock interaction events, and add/remove scenes. If you read and understand the code, you can add your own custom transition types — custom transition example.
+The purpose of a `Transition` is to gradually fade in/out a black bitmap image, lock/unlock interaction events, and add/remove scenes. If you read and understand the code, you can add your own custom transition types — [custom transition example](https://github.com/nayata/heleton/tree/main/examples/transition).
 
 You can specify the `Transition` fade time/interval:
 
@@ -152,7 +152,7 @@ tween.add(image.alpha, 0, 5, 10); // This will be tweened successfully due delay
 tween.add(image.x, 0, 5); // This will be tweened successfully due another setter.
 ```
 
-Within your scene, you have a reference to the tween instance from `App` for easier use, but you can create other instances as needed.
+Within your scene, you have a reference to the tween instance from `App` for easier use, but you can create other instances as needed — [pausable tweens example](https://github.com/nayata/heleton/tree/main/examples/pausable).
 
 
 # Screen
@@ -161,9 +161,6 @@ Within your scene, you have a reference to the tween instance from `App` for eas
 <p></p>
 
 `heaps.Screen` is a set of functions for creating responsive UI and screen design. It's minimal and not a "full-fledged layout framework", but it can make things look a lot prettier across different screen sizes.
-
-Minimal tutorial
-Responsive Demo
 
 Main idea is to use separate resize for the background and game screen or for the game screen and the game UI. 
 
@@ -210,6 +207,8 @@ heaps.Stats.hide();
 - **web:** returns `true` if the game is running in a desktop browser.
 
 
+
+
 # Configuring Heleton
 
 **Heleton** requires minimal configuration. All you need to specify is the game's initial scene, the target resolution for your game if you plan to use custom resizing, and if necessary, the `Transition` fade time/interval.
@@ -219,13 +218,13 @@ heaps.Stats.hide();
 
 [Example with touch support](https://nayata.itch.io/mobile)  
 [Responsive game example](https://nayata.itch.io/responsive)  
-  
-    
+
+
 # Examples
-scenes — basic scene switching.  
-mobile — web example with touch support.  
-responsive — responsive game example.  
-pausable — pausable tweens.  
-transition — custom transition.  
-device — device test.
+[scenes](https://github.com/nayata/heleton/tree/main/examples/scenes) — basic scene switching.  
+[mobile](https://github.com/nayata/heleton/tree/main/examples/mobile) — web example with touch support.  
+[responsive](https://github.com/nayata/heleton/tree/main/examples/responsive) — responsive game example.  
+[pausable](https://github.com/nayata/heleton/tree/main/examples/pausable) — pausable tweens.  
+[transition](https://github.com/nayata/heleton/tree/main/examples/transition) — custom transition.  
+[device](https://github.com/nayata/heleton/tree/main/examples/device) — device test.
 
