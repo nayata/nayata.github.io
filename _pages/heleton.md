@@ -9,7 +9,7 @@ permalink: /heleton/
 <center><video width="100%" autoplay muted loop><source src="/media/template.mp4" type="video/mp4"></video></center>
 <p></p>
 
-Although [Heaps](https://heaps.io/) is a flexible and performant engine, it can feel a bit **DIY** in certain areas. [Heleton](https://github.com/nayata/editor) is designed to fill in these gaps for a quicker start: it includes a scene manager with smooth transitions, automatic scene updates, an tween engine, scripts for custom resize handling, and a simple performance display panel.
+Although [Heaps](https://heaps.io/) is a flexible and performant engine, it can feel a bit **DIY** in certain areas. [Heleton](https://github.com/nayata/heleton) is designed to fill in these gaps for a quicker start: it includes a scene manager with smooth transitions, automatic scene updates, an tween engine, scripts for custom resize handling, and a simple performance display panel.
 
 **Heleton** draws some inspiration from **deepnight**’s [gameBase](https://github.com/deepnight/gameBase), but is designed to be as simple and minimalistic as possible.
 
@@ -216,6 +216,9 @@ heaps.Stats.hide();
 
 
 ## Demo
+
+[Example with touch support](https://nayata.itch.io/mobile)
+[Responsive game example](https://nayata.itch.io/responsive)
 
 
 ## Examples
