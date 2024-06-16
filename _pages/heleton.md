@@ -218,9 +218,9 @@ heaps.Stats.hide();
 # Demo
 
 [Example with touch support](https://nayata.itch.io/mobile)  
-[Responsive game example](https://nayata.itch.io/responsive)
-
-
+[Responsive game example](https://nayata.itch.io/responsive)  
+  
+    
 # Examples
 scenes — basic scene switching.  
 mobile — web example with touch support.  
