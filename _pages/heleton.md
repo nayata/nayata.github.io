@@ -36,7 +36,7 @@ This will create and add your scene to the display list.
 
 # Scene
 
-`heaps.Scene` is the base object for your game screens, such as splash screens, menus, inventories, pause screens, etc.
+`heaps.Scene` is the base object for your game screens, such as the game itself, splash screens, menus, inventories, pause screens, etc.
 
 Within each scene, you have a shortcut for quick access to `App.ME` — `app`, and you can change game scenes with a single line of code:
 
@@ -47,9 +47,9 @@ app.scene = new Game();
 This triggers the following workflow:
 
 * All interactive elements are locked.
-* The App begins the transition animation between scenes.
-* The App adds the new scene to the display scene.
-* The App adds the new scene to the global update/resize list.
+* The `App` begins the transition animation between scenes.
+* The `App` adds the new scene to the display scene.
+* The `App` adds the new scene to the global update/resize list.
 * The new scene receives `onAdd` and `onResize` events.
 * The old scene receives a `dispose` event, is removed from the update/resize list, and is removed from the display scene.
 * All interactive elements are unlocked.
@@ -91,7 +91,7 @@ You can specify the `Transition` fade time/interval:
 - `transition.duration`: Transition fade time.
 - `transition.interval`: interval between transitions.
 
-`Transition` uses its own simple animation mechanics. For more complex animations, Heleton includes the `Animate` engine.
+`Transition` uses its own basic animation mechanics. For more complex animations, Heleton includes the `Animate` engine.
 
 
 ## Animate
@@ -169,7 +169,7 @@ After window resize `App` updates `heaps.Screen` to recalculate all important in
 
 ## Stats
 
-`heaps.Stats` can add a simple panel to display the game's FPS, draw calls, and memory usage. The stats panel is added on top of the hierarchy above the `Transition` screen.
+`heaps.Stats` can add a panel to display the game's FPS, draw calls, and memory usage. The stats panel is added on top of the hierarchy above the `Transition` screen.
 
 To show the stats panel, use:
 
