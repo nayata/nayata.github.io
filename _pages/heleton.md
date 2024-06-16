@@ -5,7 +5,7 @@ author: "Nayata"
 description: "Minimal 2D game skeleton for Haxe Heaps engine"
 permalink: /heleton/
 ---
-
+<a class="github-fork-ribbon" href="https://github.com/nayata/heleton" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
 <center><video width="100%" autoplay muted loop><source src="/media/template.mp4" type="video/mp4"></video></center>
 <p></p>
 
