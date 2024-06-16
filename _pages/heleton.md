@@ -217,8 +217,7 @@ heaps.Stats.hide();
 
 ## Demo
 
-[Example with touch support](https://nayata.itch.io/mobile)
-
+[Example with touch support](https://nayata.itch.io/mobile)  
 [Responsive game example](https://nayata.itch.io/responsive)
 
 
