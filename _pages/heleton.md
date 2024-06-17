@@ -101,7 +101,7 @@ You can specify the `Transition` fade time/interval:
 
 `heaps.Animate` is a minimal and frame independent tween engine with a convenient syntax for adding animations.
 
-For example, if you want to animate an image’s alpha channel to 0 over 5 ms, instead of the classic:
+For example, if you want to animate an image’s alpha value to 0 over 5 ms, instead of the classic:
 
 ```haxe
 tween.add(image, { alpha: 0 }, 5);
