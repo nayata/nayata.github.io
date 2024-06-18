@@ -96,19 +96,21 @@ class Main extends App {
 		// dispose current transition
 		transition.dispose();
 
-		// add a new transition
+		// add a new transition and set the duration
 		transition = new heaps.transitions.Diamond(0x000000, this);
 
-		// transition fade time
 		transition.duration = 15;
-
-		// interval between transitions
 		transition.interval = 0;
 
 		scene = new Menu();
 	}
 }
 ```
+
+To specify the fade time/interval of a transition:
+
+- `transition.duration`: Transition fade time.
+- `transition.interval`: interval between transitions.
 
 `Transition` uses its own basic animation mechanics. For more complex animations, Heleton includes the `Animate` engine.
 
