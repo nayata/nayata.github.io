@@ -84,12 +84,31 @@ class Game extends heaps.Scene {
 
 `heaps.Transition` are where things can get wild if you modify them without understanding the underlying mechanics.
 
-The purpose of a `Transition` is to gradually fade in/out a black bitmap image, lock/unlock interaction events, and add/remove scenes. If you read and understand the code, you can add your own custom transition types — [custom transition example](https://github.com/nayata/heleton/tree/main/examples/transition).
+The purpose of a `Transition` is to gradually fade in/out a black bitmap image, lock/unlock interaction events, and add/remove scenes. You can add your own custom transition — [custom transition example](https://github.com/nayata/heleton/tree/main/examples/transition) or use one from the `heaps.transitions` package.
 
-You can specify the `Transition` fade time/interval:
+```haxe
+class Main extends App {
+	static function main() {
+		App.ME = new Main();
+    }
 
-- `transition.duration`: Transition fade time.
-- `transition.interval`: interval between transitions.
+	override function startingScene() {
+		// dispose current transition
+		transition.dispose();
+
+		// add a new transition
+		transition = new heaps.transitions.Diamond(0x000000, this);
+
+		// transition fade time
+		transition.duration = 15;
+
+		// interval between transitions
+		transition.interval = 0;
+
+		scene = new Menu();
+	}
+}
+```
 
 `Transition` uses its own basic animation mechanics. For more complex animations, Heleton includes the `Animate` engine.
 
