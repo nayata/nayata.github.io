@@ -9,7 +9,7 @@ permalink: /hexe/
 ![HEXE](/media/hexe.png "HEXE")
 <p></p>
 
-## Introduction
+# Introduction
 
 **HEXE** (Witch) is a prefab editor and runtime library for the [Heaps](https://heaps.io/) game engine.
 
@@ -17,13 +17,13 @@ HEXE is focused on 2D content and serves as a more user-friendly alternative to 
 
 
 
-## How It Works
+# How It Works
 
 Use the editor to create a prefab from your project assets and save it as a file in the `res` directory. Then, you can use the `hxe.Lib` library to load the prefab file into the game as an `hxe.Prefab` display object.
 
 
 
-## About the Prefab
+# About the Prefab
 
 All prefab files have a *".prefab"* extension to differentiate them from other data files.
 
@@ -34,6 +34,8 @@ The library loads and parses the file to retrieve the saved data. It then create
 **A prefab object** is essentially a container for other objects: bitmaps, text elements, interactive components, and others. A prefab could represent an entire game screen, containing other prefabs, a simple UI element, or a game character.
 
 Prefabs can be nested within other prefabs to create complex object hierarchies. In the editor, you can override settings for individual prefabs, allowing certain prefab instances to differ from others.
+
+![Prefab override](/media/override.png "Prefab fields override")
 
 Once a prefab is placed in the scene, it becomes an instance of the prefab. You can create as many instances as needed.
 
@@ -64,7 +66,7 @@ List of Heaps h2d objects that can be added to a prefab:
 
 
 
-### Quick Start
+# Quick Start
 
 Download the editor and create your prefab. 
 
@@ -94,7 +96,7 @@ var object:hxe.Prefab = hxe.Lib.load("myPrefab", s2d);
 
 
 
-## Working with editor
+# Working with editor
 
 <center><video width="100%" autoplay muted loop><source src="/media/prefab.mp4" type="video/mp4"></video></center>
 <p></p>
@@ -115,7 +117,7 @@ Note that some objects cannot have children, such as `Text`, `Interactive`, and 
 
 
 
-## In-game implementation
+# In-game implementation
 
 
 prefab load
@@ -127,4 +129,4 @@ prefab bind
 
 
 
-## API
+# API
