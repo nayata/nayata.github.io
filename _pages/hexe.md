@@ -6,7 +6,7 @@ description: "2D Editor for the Heaps game engine"
 permalink: /hexe/
 ---
 
-<center>![HEXE](/media/hexe.png "HEXE")</center>
+![HEXE](/media/hexe.png "HEXE")
 <p></p>
 
 ## Introduction
