@@ -144,16 +144,5 @@ Note that some objects cannot have children, such as `Text`, `Interactive`, and 
 
 <br>
 
-# In-game implementation
-
-
-prefab load
-geting p objects from hierarchy
-is / as 
-prefab h != object children
-prefab make
-prefab bind
-
-<br>
-
-# API
+# [In-game implementation](https://github.com/nayata/hexe)  
+# [API](https://github.com/nayata/hexe)
