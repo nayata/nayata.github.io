@@ -84,7 +84,7 @@ haxelib git prefab https://github.com/nayata/prefab.git
 
 Include the library in your project's `.hxml`:
 
-```hxml
+```
 -lib prefab
 ```
 
@@ -113,7 +113,7 @@ Each object added to a prefab is given a default name based on its type *(e.g., 
 
 You can adjust the display order of prefab objects or change their parent objects. Simply drag the object item in the `Outliner` to a new position or drop it onto another item.
 
-Note that some objects cannot have children, such as `Text`, `Interactive`, and `Linked Prefab`s.
+Note that some objects cannot have children, such as `Text`, `Interactive`, and `Linked Prefab`.
 
 
 
