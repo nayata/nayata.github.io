@@ -94,20 +94,46 @@ Use `hxe.Lib` to load and add a prefab instance to the scene. Note: the prefab n
 var object:hxe.Prefab = hxe.Lib.load("myPrefab", s2d);
 ```
 
-
+<br>
 
 # Working with editor
 
+Editor interface.
+
+![Editor](/media/editor.png "Working with editor")
+
+#### Menu
+- **File** - open and save files.
+- **Edit** - Undo / Redo. Copy and paste objects.
+- **Assets** - Add objects. Load fonts and texture atlases.
+
+#### Tools
+- **Translate** - Move object.
+- **Rotation** - Rotate object.
+- **Scale** - Scale object.
+
+#### Outliner
+- **Prefab objects hierarchy**
+
+#### Properties
+- **Object properties** - Name, transformation, display, and specific properties based on the object type.
+
+
+### Creating prefab:
+
 <center><video width="100%" autoplay muted loop><source src="/media/prefab.mp4" type="video/mp4"></video></center>
 <p></p>
+
 
 ### Assets Path
 
 For each asset used in a prefab, a relative path will be generated. If you plan to use assets from the `res` subfolder, it is recommended to save the prefab file first, before adding any assets.
 
+
 ### Naming
 
 Each object added to a prefab is given a default name based on its type *(e.g., "object", "bitmap", "text")*. You can change this name to something unique if you need to access the object in the prefab hierarchy through code.
+
 
 ### Order and Parenting
 
@@ -115,7 +141,7 @@ You can adjust the display order of prefab objects or change their parent object
 
 Note that some objects cannot have children, such as `Text`, `Interactive`, and `Linked Prefab`.
 
-
+<br>
 
 # In-game implementation
 
@@ -127,6 +153,6 @@ prefab h != object children
 prefab make
 prefab bind
 
-
+<br>
 
 # API
