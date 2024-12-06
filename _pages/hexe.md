@@ -3,7 +3,7 @@ layout: post
 title: "HEXE"
 author: "Nayata"
 description: "2D Editor for the Heaps game engine"
-permalink: /hexe/
+permalink: /hexe
 ---
 
 ![HEXE](/media/hexe.png "HEXE")
