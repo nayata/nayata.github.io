@@ -66,23 +66,27 @@ List of Heaps h2d objects that can be added to a prefab:
 
 ### Quick Start
 
-1. Download the editor and create your prefab.
+Download the editor and create your prefab. 
 
-3. Install the library from haxelib:
+Install the library from haxelib:
+
 ```
 haxelib install prefab
 ```
+
 Alternatively the dev version of the library can be installed from github:
+
 ```
 haxelib git prefab https://github.com/nayata/prefab.git
 ```
 
-4. Include the library in your project's `.hxml`:
+Include the library in your project's `.hxml`:
+
 ```hxml
 -lib prefab
 ```
 
-5. Use `hxe.Lib` to load and add a prefab instance to the scene. Note: the prefab name must be without extension.
+Use `hxe.Lib` to load and add a prefab instance to the scene. Note: the prefab name must be without extension.
 
 ```haxe
 var object:hxe.Prefab = hxe.Lib.load("myPrefab", s2d);
