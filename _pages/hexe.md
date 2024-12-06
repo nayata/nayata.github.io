@@ -3,7 +3,7 @@ layout: post
 title: "HEXE"
 author: "Nayata"
 description: "2D Editor for the Heaps game engine"
-permalink: /hexe
+permalink: /hexe/
 ---
 
 ![HEXE](/media/hexe.png "HEXE")
@@ -144,5 +144,8 @@ Note that some objects cannot have children, such as `Text`, `Interactive`, and 
 
 <br>
 
-# [In-game implementation](https://github.com/nayata/hexe)  
-# [API](https://github.com/nayata/hexe)
+## [Introduction](https://github.com/nayata/hexe)  
+## [Quick Start](https://github.com/nayata/hexe/#quick-start)  
+## [Working with editor](https://github.com/nayata/hexe/#working-with-editor)  
+## [In-game implementation](https://github.com/nayata/hexe)  
+## [API](https://github.com/nayata/hexe)
