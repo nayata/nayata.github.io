@@ -51,13 +51,13 @@ The prefab includes a method for quick access to objects within its hierarchy. Y
 
 List of Heaps h2d objects that can be added to a prefab:
 
-- [x] Object
-- [x] Bitmap from image file
-- [x] Bitmap from loaded Texture Atlas
-- [x] Text with default or loaded Font
-- [x] Interactive
-- [x] Graphics
-- [x] Linked Prefab
+- [x] **Object**
+- [x] **Bitmap from image file**
+- [x] **Bitmap from loaded Texture Atlas**
+- [x] **Text with default or loaded Font**
+- [x] **Interactive**
+- [x] **Graphics**
+- [x] **Linked Prefab**
 - [ ] Anim
 - [ ] ScaleGrid 
 - [ ] Mask
@@ -95,6 +95,9 @@ var object:hxe.Prefab = hxe.Lib.load("myPrefab", s2d);
 
 
 ## Working with editor
+
+<center><video width="100%" autoplay muted loop><source src="/media/prefab.mp4" type="video/mp4"></video></center>
+<p></p>
 
 ### Assets Path
 
