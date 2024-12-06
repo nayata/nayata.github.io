@@ -27,7 +27,7 @@ Use the editor to create a prefab from your project assets and save it as a file
 
 All prefab files have a *".prefab"* extension to differentiate them from other data files.
 
-**A prefab file** is simply a JSON text file, formatted with newlines, that contains data about the objects to be created (such as bitmaps, interactive elements, etc.), their placement in the scene, and the properties to be applied to these objects.
+**A prefab file** is simply a JSON text file, formatted with newlines, that contains data about the objects to be created (such as bitmaps, interactive elements, etc.), their placement in the prefab, and the properties to be applied to these objects.
 
 The library loads and parses the file to retrieve the saved data. It then creates the main prefab object, generates all its child objects, positions them correctly, and sets the required properties.
 
@@ -111,9 +111,10 @@ Editor interface.
 - **Translate** - Move object.
 - **Rotation** - Rotate object.
 - **Scale** - Scale object.
+- **Lock** - Objects auto-select locking.
 
 #### Outliner
-- **Prefab objects hierarchy**
+- **Prefab objects hierarchy.**
 
 #### Properties
 - **Object properties** - Name, transformation, display, and specific properties based on the object type.
