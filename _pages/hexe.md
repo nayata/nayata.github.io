@@ -144,8 +144,8 @@ Note that some objects cannot have children, such as `Text`, `Interactive`, and 
 
 <br>
 
-## [Introduction](https://github.com/nayata/hexe)  
-## [Quick Start](https://github.com/nayata/hexe/#quick-start)  
-## [Working with editor](https://github.com/nayata/hexe/#working-with-editor)  
-## [In-game implementation](https://github.com/nayata/hexe)  
-## [API](https://github.com/nayata/hexe)
+## [Introduction](https://nayata.github.io/hexe)  
+## [Quick Start](https://nayata.github.io/hexe/#quick-start)  
+## [Working with editor](https://nayata.github.io/hexe/#working-with-editor)  
+## [In-game implementation](https://nayata.github.io/hexe)  
+## [API](https://nayata.github.io/hexe)
