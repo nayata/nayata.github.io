@@ -15,13 +15,13 @@ permalink: /hexe/
 
 HEXE is focused on 2D content and serves as a more user-friendly alternative to **Hide** (Heaps IDE).
 
-
+<br>
 
 # How It Works
 
 Use the editor to create a prefab from your project assets and save it as a file in the `res` directory. Then, you can use the `hxe.Lib` library to load the prefab file into the game as an `hxe.Prefab` display object.
 
-
+<br>
 
 # About the Prefab
 
@@ -33,15 +33,15 @@ The library loads and parses the file to retrieve the saved data. It then create
 
 **A prefab object** is essentially a container for other objects: bitmaps, text elements, interactive components, and others. A prefab could represent an entire game screen, containing other prefabs, a simple UI element, or a game character.
 
-Prefabs can be nested within other prefabs to create complex object hierarchies. In the editor, you can override settings for individual prefabs, allowing certain prefab instances to differ from others.
+![Prefab](/media/prefab.png "Prefab file & object")
 
-![Prefab override](/media/override.png "Prefab fields override")
+Prefabs can be nested within other prefabs to create complex object hierarchies. In the editor, you can override settings for individual prefabs, allowing certain prefab instances to differ from others.
 
 Once a prefab is placed in the scene, it becomes an instance of the prefab. You can create as many instances as needed.
 
 
 
-## Prefab Features
+## Prefab Object
 
 `hxe.Prefab` inherits from `h2d.Object`, so properties such as position, rotation, scale, and opacity can be set for a prefab instance in the same way as for any other object.
 
@@ -64,7 +64,7 @@ List of Heaps h2d objects that can be added to a prefab:
 - [ ] ScaleGrid 
 - [ ] Mask
 
-
+<br>
 
 # Quick Start
 
