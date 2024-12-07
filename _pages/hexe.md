@@ -122,7 +122,7 @@ Editor interface.
 
 ### Creating prefab:
 
-<center><video width="100%" autoplay muted loop><source src="/media/prefab.mp4" type="video/mp4"></video></center>
+<center><video width="100%" controls muted loop><source src="/media/prefab.mp4" type="video/mp4"></video></center>
 <p></p>
 
 
@@ -147,5 +147,5 @@ Note that some objects cannot have children, such as `Text`, `Interactive`, and 
 ## [Introduction](https://nayata.github.io/hexe)  
 ## [Quick Start](https://nayata.github.io/hexe/#quick-start)  
 ## [Working with editor](https://nayata.github.io/hexe/#working-with-editor)  
-## [In-game implementation](https://nayata.github.io/hexe)  
-## [API](https://nayata.github.io/hexe)
+## [In-game implementation](https://nayata.github.io/hexe-lib)  
+## [API](https://nayata.github.io/hexe-api)
