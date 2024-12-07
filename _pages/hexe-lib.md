@@ -20,7 +20,7 @@ permalink: /hexe-lib/
 
 # Geting Started
 
-In the example `res` folder you can find **card**, **button** and **board** prefabs used in the code examples.
+In the example `res` folder you will find the **card**, **button** and **board** prefabs used in the code examples.
 
 **Before start:** install the library from haxelib:
 
@@ -46,7 +46,7 @@ Include the library in your project's `.hxml`:
 
 # Load Prefab
 
-Prefab loading and adding to scene.
+Loading a prefab and adding it to the scene.
 
 ```haxe
 class App extends hxd.App {
@@ -73,13 +73,17 @@ class App extends hxd.App {
 
 # Modify Prefab
 
-Get and modify objects from prefab hierarchy. 
+Get and change objects from the prefab hierarchy.
 
-In this example added **card.prefab** and **button.prefab**. After this text for "title" textfield from **card.prefab** was changed to "Deem".
+The `get` method of a `hxe.Prefab` is used to get a specific object by the specified name.
 
-From **button.prefab** we get `h2d.Interactive` with name "input" and assigned mouse events to this interactive.
+In this example, **card.prefab** and **button.prefab** were added to the scene. After that, the text for the *"title"* textfield from **card.prefab** was changed to "Deem".
 
-**Note:** for methods which belongs to top `h2d.Object` we dont need to cast type and can just use Prefab `get` method: `button.get("over").visible = true;`
+From **button.prefab** we get an `h2d.Interactive` named *"input"* and assign mouse events to this interactive.
+
+**Note:** for methods that belong to the top `h2d.Object`, you don't need to specify the type, and you can simply use the `get` method of the prefab: `button.get("over").visible = true;`
+
+`hxe.Prefab` also has a `typeof` method to get the class type of an object from its hierarchy.
 
 
 ```haxe
@@ -155,7 +159,14 @@ class App extends hxd.App {
 
 # Prefab Hierarchy
 
-Prefab hierarchy and children
+Prefab hierarchy and childrens.
+
+The `get` method of a `hxe.Prefab` is used to get a specific object by the specified name.
+
+The `hxe.Prefab` also has a `getAll` method with which you can get an array of objects of the specified type. For example, we can get all objects with the `h2d.Bitmap` or `h2d.Text` type.
+
+The prefab hierarchy is a *key->value* `Map` so objects in it are not equal to objects in the prefab `children` array. This is because objects with non-unique names overwrite each other.
+
 
 ```haxe
 import hxe.Prefab;
@@ -240,7 +251,7 @@ class App extends hxd.App {
 
 # Prefab Make
 
-We can create class that will be keep all needed fields and `hxe.Lib` trough method `make` will assign created objects to corresponding fields.
+We can create a `Сlass` that will store all the necessary fields, and `hxe.Lib` will create an instance of this `Class` using the `make` method and assign the created objects to the corresponding instance fields.
 
 ```haxe
 import hxe.Prefab;
@@ -313,7 +324,7 @@ class Button extends hxe.Prefab {
 
 # Prefab Bind
 
-Prefab using `Bind`
+If you want to use a prefab and at the same time don't want to change your class - you can use the `bind` method of the `hxe.Lib` library to "inject" the required prefab.
 
 ```haxe
 class App extends hxd.App {
@@ -403,7 +414,8 @@ class Button extends h2d.Object {
 
 # Override
 
-Prefab loading and adding to scene
+Using the editor you can override some values ​​of objects in the prefab. You can also do this dynamically by specifying the required parameters.
+
 
 ```haxe
 class App extends hxd.App {
@@ -431,6 +443,7 @@ class App extends hxd.App {
 }
 ```
 
+![Override fields](/media/override.png "Override fields")
 
 <br>
 
