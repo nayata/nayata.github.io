@@ -7,7 +7,8 @@ permalink: /hexe/
 ---
 
 ![HEXE](/media/hexe.png "HEXE")
-<p></p>
+
+<br>
 
 # Introduction
 
