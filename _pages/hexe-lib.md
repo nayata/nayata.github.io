@@ -9,11 +9,10 @@ permalink: /hexe-lib/
 
 ### [1. Load prefab](#load-prefab)  
 ### [2. Modify Prefab](#modify-prefab)  
-### [3. Prefab Hierarchy](#load-prefab)  
+### [3. Prefab Hierarchy](#prefab-hierarchy)  
 ### [4. Prefab Make](#prefab-make)  
-### [5. Prefab Init](#prefab-init)  
-### [6. Prefab Bind](#prefab-bind)  
-### [7. Override](#override)  
+### [5. Prefab Bind](#prefab-bind)  
+### [6. Override](#override)  
 
 
 <br>
@@ -80,7 +79,7 @@ In this example added **card.prefab** and **button.prefab**. After this text for
 
 From **button.prefab** we get `h2d.Interactive` with name "input" and assigned mouse events to this interactive.
 
-Note: for methods which belongs to top `h2d.Object` we dont need to cast type and can just use Prefab `get` method: `button.get("over").visible = true;`
+**Note:** for methods which belongs to top `h2d.Object` we dont need to cast type and can just use Prefab `get` method: `button.get("over").visible = true;`
 
 
 ```haxe
@@ -307,12 +306,6 @@ class Button extends hxe.Prefab {
 	public var label:h2d.Text;
 }
 ```
-
-
-<br>
-
-
-# Prefab Init
 
 
 <br>
