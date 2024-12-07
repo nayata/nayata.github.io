@@ -142,6 +142,12 @@ You can adjust the display order of prefab objects or change their parent object
 
 Note that some objects cannot have children, such as `Text`, `Interactive`, and `Linked Prefab`.
 
+
+### Overriding prefab fields:
+
+<center><video width="100%" controls muted loop><source src="/media/nested.mp4" type="video/mp4"></video></center>
+<p></p>
+
 <br>
 
 ## [Introduction](https://nayata.github.io/hexe)  
