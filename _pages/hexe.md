@@ -12,9 +12,7 @@ permalink: /hexe/
 
 # Introduction
 
-**HEXE** (Witch) is a prefab editor and runtime library for the [Heaps](https://heaps.io/) game engine.
-
-HEXE is focused on 2D content and serves as a more user-friendly alternative to **Hide** (Heaps IDE).
+**HEXE** (Witch) is a prefab editor and runtime library for the [Heaps](https://heaps.io/) game engine. **HEXE** is focused on 2D content and serves as a more user-friendly alternative to **Hide** (Heaps IDE).
 
 <br>
 
