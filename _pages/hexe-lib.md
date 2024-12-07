@@ -7,12 +7,15 @@ permalink: /hexe-lib/
 ---
 
 
-### [Load prefab](#load-prefab)  
-### [Modify Prefab](#modify-prefab)  
-### [Working with editor](https://nayata.github.io/hexe/#working-with-editor)  
-### [In-game implementation](https://nayata.github.io/hexe-lib)  
-### [API](https://nayata.github.io/hexe-api)
+### [1. Load prefab](#load-prefab)  
+### [2. Modify Prefab](#modify-prefab)  
+### [3. Prefab hierarchy](#load-prefab)  
+### [4. Prefab Make](#modify-prefab)  
+### [5. Prefab Make+Init](#load-prefab)  
+### [6. Prefab Bind](#modify-prefab)  
+### [7. Override](#modify-prefab)  
 
+<br>
 
 # Load Prefab
 
@@ -36,6 +39,8 @@ class App extends hxd.App {
 	}
 }
 ```
+
+<br>
 
 # Modify Prefab
 
@@ -105,8 +110,8 @@ class App extends hxd.App {
 	}
 }
 ```
-<br>
 
+<br>
 
 ## [Introduction](https://nayata.github.io/hexe)  
 ## [Quick Start](https://nayata.github.io/hexe/#quick-start)  
