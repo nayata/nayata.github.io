@@ -9,7 +9,7 @@ permalink: /hexe-lib/
 
 ### [1. Load prefab](#load-prefab)  
 ### [2. Modify Prefab](#modify-prefab)  
-### [3. Prefab hierarchy](#load-prefab)  
+### [3. Prefab Hierarchy](#load-prefab)  
 ### [4. Prefab Make](#prefab-make)  
 ### [5. Prefab Init](#prefab-init)  
 ### [6. Prefab Bind](#prefab-bind)  
@@ -74,7 +74,13 @@ class App extends hxd.App {
 
 # Modify Prefab
 
-Get and modify objects from prefab hierarchy.
+Get and modify objects from prefab hierarchy. 
+
+In this example added **card.prefab** and **button.prefab**. After this text for "title" textfield from **card.prefab** was changed to "Deem".
+
+From **button.prefab** we get `h2d.Interactive` with name "input" and assigned mouse events to this interactive.
+
+Note: for methods which belongs to top `h2d.Object` we dont need to cast type and can just use Prefab `get` method: `button.get("over").visible = true;`
 
 
 ```haxe
@@ -143,30 +149,108 @@ class App extends hxd.App {
 
 <center><video width="100%" autoplay muted loop><source src="/media/card.mp4" type="video/mp4"></video></center>
 <p></p>
+
+
+<br>
+
+
+# Prefab Hierarchy
+
+We can create class that will be keep all needed fields and `hxe.Lib` trough method `make` will assign created objects to corresponding fields.
+
+
 <br>
 
 
 # Prefab Make
 
-Creating links for prefab fields. We can create class that will be keep all needed fields and Lib trough method `make` will assign created objects to corresponding fields.
+We can create class that will be keep all needed fields and `hxe.Lib` trough method `make` will assign created objects to corresponding fields.
+
+```haxe
+import hxe.Prefab;
+
+class App extends hxd.App {
+	var board:Prefab;
+	var button:Button; // Now this is the `Button`
+
+
+	static function main() {
+		new App();
+	}
+
+
+	override function init() {
+		engine.backgroundColor = 0x222222;
+		hxd.Res.initLocal();
+
+		// Add `board.prefab`
+		board = hxe.Lib.load("board", s2d);
+		board.x = s2d.width * 0.5;
+		board.y = s2d.height * 0.5 - 64;
+
+		// Make `Button` class instance from `button.prefab`
+		button = hxe.Lib.make("button", Button, s2d);
+		button.x = s2d.width * 0.5;
+		button.y = s2d.height - 128;
+
+		// Label and interactive alredy exist
+		button.label.text = "Select";
+
+		button.input.onClick = onClick;
+		button.input.onOver = onOver;
+		button.input.onOut = onOut;
+	}
+
+
+	function onClick(e:hxd.Event) {
+		var grimCard = board.get("grimCard");
+
+		var title:h2d.Text = grimCard.get("title");
+		title.text = title.text == "Grimm" ? "Reaper" : "Grimm";
+	}
+
+
+	function onOver(e:hxd.Event) {
+		button.get("over").visible = true;
+	}
+
+
+	function onOut(e:hxd.Event) {
+		button.get("over").visible = false;
+	}
+}
+```
+
+Button.hx
+
+```haxe
+class Button extends hxe.Prefab {
+	public var over:h2d.Bitmap;
+	public var input:h2d.Interactive;
+	public var label:h2d.Text;
+}
+```
+
 
 <br>
 
 
 # Prefab Init
 
+
 <br>
 
 
 # Prefab Bind
+
 
 <br>
 
 
 # Override
 
-<br>
 
+<br>
 
 
 ## [Introduction](https://nayata.github.io/hexe)  
