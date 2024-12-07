@@ -15,7 +15,9 @@ permalink: /hexe-lib/
 ### [6. Prefab Bind](#prefab-bind)  
 ### [7. Override](#override)  
 
+
 <br>
+
 
 # Geting Started
 
@@ -39,6 +41,8 @@ Include the library in your project's `.hxml`:
 -lib prefab
 ```
 
+
+<br>
 
 
 # Load Prefab
@@ -64,7 +68,9 @@ class App extends hxd.App {
 }
 ```
 
+
 <br>
+
 
 # Modify Prefab
 
@@ -135,7 +141,8 @@ class App extends hxd.App {
 }
 ```
 
-
+<center><video width="100%" autoplay muted loop><source src="/media/card.mp4" type="video/mp4"></video></center>
+<p></p>
 <br>
 
 
