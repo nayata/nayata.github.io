@@ -10,12 +10,36 @@ permalink: /hexe-lib/
 ### [1. Load prefab](#load-prefab)  
 ### [2. Modify Prefab](#modify-prefab)  
 ### [3. Prefab hierarchy](#load-prefab)  
-### [4. Prefab Make](#modify-prefab)  
-### [5. Prefab Make+Init](#load-prefab)  
-### [6. Prefab Bind](#modify-prefab)  
-### [7. Override](#modify-prefab)  
+### [4. Prefab Make](#prefab-make)  
+### [5. Prefab Init](#prefab-init)  
+### [6. Prefab Bind](#prefab-bind)  
+### [7. Override](#override)  
 
 <br>
+
+# Geting Started
+
+In the example `res` folder you can find **card**, **button** and **board** prefabs used in the code examples.
+
+**Before start:** install the library from haxelib:
+
+```
+haxelib install prefab
+```
+
+Alternatively the dev version of the library can be installed from github:
+
+```
+haxelib git prefab https://github.com/nayata/prefab.git
+```
+
+Include the library in your project's `.hxml`:
+
+```
+-lib prefab
+```
+
+
 
 # Load Prefab
 
@@ -111,7 +135,32 @@ class App extends hxd.App {
 }
 ```
 
+
 <br>
+
+
+# Prefab Make
+
+Creating links for prefab fields. We can create class that will be keep all needed fields and Lib trough method `make` will assign created objects to corresponding fields.
+
+<br>
+
+
+# Prefab Init
+
+<br>
+
+
+# Prefab Bind
+
+<br>
+
+
+# Override
+
+<br>
+
+
 
 ## [Introduction](https://nayata.github.io/hexe)  
 ## [Quick Start](https://nayata.github.io/hexe/#quick-start)  
