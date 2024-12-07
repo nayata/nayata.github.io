@@ -6,11 +6,40 @@ description: "2D Editor for the Heaps game engine"
 permalink: /hexe-lib/
 ---
 
-![HEXE](/media/hexe.png "HEXE")
-<p></p>
+
+### [Load prefab](#load-prefab)  
+### [Modify Prefab](#modify-prefab)  
+### [Working with editor](https://nayata.github.io/hexe/#working-with-editor)  
+### [In-game implementation](https://nayata.github.io/hexe-lib)  
+### [API](https://nayata.github.io/hexe-api)
 
 
-# Get and modify Prefab objects
+# Load Prefab
+
+Prefab loading and adding to scene.
+
+```haxe
+class App extends hxd.App {
+	
+	static function main() {
+		new App();
+	}
+
+	override function init() {
+		engine.backgroundColor = 0x222222;
+		hxd.Res.initLocal();
+
+		// Add `card.prefab`
+		var card = hxe.Lib.load("card", s2d);
+		card.x = s2d.width * 0.5;
+		card.y = s2d.height * 0.5;
+	}
+}
+```
+
+# Modify Prefab
+
+Get and modify objects from prefab hierarchy.
 
 
 ```haxe
