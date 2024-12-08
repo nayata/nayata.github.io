@@ -219,7 +219,7 @@ class App extends hxd.App {
 			// Set all text to "text"
 
 			// Note - central card not changed text, because 
-			// hierarchy accept only unice names, and this card 
+			// hierarchy accept only unique names, and this card 
 			// was overwrited with another.
 			var texfields = card.getAll(h2d.Text);
 			for (texfield in texfields) {
