@@ -11,7 +11,7 @@ permalink: /hexe-api/
 							href="https://github.com/nayata/prefab/blob/main/src/hxe/Lib.hx" class="btn btn-medium"><i
 								class="fa fa-eye"></i> View source</a></span>
 					<h1><small>class</small> Lib</h1>
-					<h4><small>package <a href="../hxe/index.html">hxe</a></small></h4>
+					<h4><small>package <a href="https://github.com/nayata/prefab/tree/main/src/hxe">hxe</a></small></h4>
 				</div>
 				<div class="body">
 					<div class="doc doc-main">
@@ -133,13 +133,13 @@ permalink: /hexe-api/
 <br>
 
 <div class="page-header"><span class="viewsource"><a
-				href="https://github.com/nayata/prefab/blob/master/hxe/Prefab.hx" class="btn btn-medium"><i
+				href="https://github.com/nayata/prefab/blob/main/src/hxe/Prefab.hx" class="btn btn-medium"><i
 					class="fa fa-eye"></i> View source</a></span>
 		<h1><small>class</small> Prefab</h1>
-		<h4><small>package <a href="../hxe/index.html">hxe</a></small></h4>
+		<h4><small>package <a href="https://github.com/nayata/prefab/tree/main/src/hxe">hxe</a></small></h4>
 		<h4><small>extends <a class="type"
 					title="h2d.Object - A base 2D class that all scene tree elements inherit from."
-					href="../h2d/Object.html">Object</a></small></h4> <span
+					href="https://heaps.io/api/h2d/Object.html">Object</a></small></h4> <span
 			class="label label-meta label-meta-directlyUsed"
 			title="Marks types that are directly referenced by non-extern code.">@:directlyUsed</span>
 	
@@ -151,7 +151,7 @@ permalink: /hexe-api/
 		<div class="fields">
 			<div class="field "><a name="new"></a>
 				<h3 class="anchor">
-					<code><a href="#new"><span class="identifier">new</span></a>(<span style="white-space:nowrap">?parent:<a class="type" title="h2d.Object - A base 2D class that all scene tree elements inherit from." href="../h2d/Object.html">Object</a></span>)</code>
+					<code><a href="#new"><span class="identifier">new</span></a>(<span style="white-space:nowrap">?parent:<a class="type" title="h2d.Object - A base 2D class that all scene tree elements inherit from." href="https://heaps.io/api/h2d/Object.html">Object</a></span>)</code>
 				</h3>
 				<div class="doc">
 					<p></p>
@@ -231,8 +231,8 @@ permalink: /hexe-api/
 <br>
 
 
-## [Introduction](https://nayata.github.io/hexe)  
-## [Quick Start](https://nayata.github.io/hexe/#quick-start)  
-## [Working with editor](https://nayata.github.io/hexe/#working-with-editor)  
-## [In-game implementation](https://nayata.github.io/hexe-lib)  
-## [API](https://nayata.github.io/hexe-api)
+<h2 id="introduction-1"><a href="https://nayata.github.io/hexe">Introduction</a></h2>
+<h2 id="quick-start-1"><a href="https://nayata.github.io/hexe/#quick-start">Quick Start</a></h2>
+<h2 id="working-with-editor-1"><a href="https://nayata.github.io/hexe/#working-with-editor">Working with editor</a></h2>
+<h2 id="in-game-implementation"><a href="https://nayata.github.io/hexe-lib">In-game implementation</a></h2>
+<h2 id="api"><a href="https://nayata.github.io/hexe-api">API</a></h2>
