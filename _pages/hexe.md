@@ -59,9 +59,9 @@ List of Heaps h2d objects that can be added to a prefab:
 - [x] **Interactive**
 - [x] **Graphics**
 - [x] **Linked Prefab**
-- [ ] Anim
-- [ ] ScaleGrid 
-- [ ] Mask
+- [x] **Anim**
+- [x] **ScaleGrid** 
+- [x] **Mask**
 
 <br>
 
