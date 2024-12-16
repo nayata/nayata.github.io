@@ -110,6 +110,7 @@ Editor interface.
 - **Translate** - Move object.
 - **Rotation** - Rotate object.
 - **Scale** - Scale object.
+- **Size** - Resize object.
 - **Lock** - Objects auto-select locking.
 
 #### Outliner
@@ -127,7 +128,9 @@ Editor interface.
 
 ### Assets Path
 
-For each asset used in a prefab, a relative path will be generated. If you plan to use assets from the `res` subfolder, it is recommended to save the prefab file first, before adding any assets.
+The editor will automatically detect your `res` folder when you open a prefab or add any resource to an unsaved prefab. For each asset, a relative path will be generated. With this, prefabs can be safely saved to any subfolder.
+
+Auto-detection of the resource folder can be disabled in the *editor.config* file in the **HEXE** folder by setting the `auto` value to `false`.
 
 
 ### Naming
