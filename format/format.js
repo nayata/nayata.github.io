@@ -14,7 +14,6 @@ window.storyFormat({
 					return text;
 				}
 			}
-    	}
 	}	
   }
 });
