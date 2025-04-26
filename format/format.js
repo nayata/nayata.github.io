@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.7.4',
+	version: '1.7.5',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -36,90 +36,79 @@ window.storyFormat({
 						return [
 							{
 								type: 'menu',
-								icon: 'data:image/svg+xml,...',
-								label: 'Modifiers',
-								items: [
-									{
-										type: 'button',
-										command: 'insertIf',
-										icon: 'data:image/svg+xml,...',
-										label: 'If'
-									},
-									{
-										type: 'button',
-										command: 'insertIfElse',
-										icon: 'data:image/svg+xml,...',
-										label: 'If and Else'
-									},
-									{type: 'separator'},
-									{
-										type: 'button',
-										command: 'insertVariable',
-										icon: 'data:image/svg+xml,...',
-										label: 'Variable'
-									},
-									{
-										type: 'button',
-										command: 'insertChance',
-										icon: 'data:image/svg+xml,...',
-										label: 'Chance'
-									},
-									{
-										type: 'button',
-										command: 'insertDice',
-										icon: 'data:image/svg+xml,...',
-										label: 'Dice'
-									}
-								]
-							},
-							{
-								type: 'menu',
-								icon: 'data:image/svg+xml,...',
+								icon: 'image/svg+xml,%3Csvg%20%20xmlns=%22http://www.w3.org/2000/svg%22%20%20width=%2224%22%20%20height=%2224%22%20%20viewBox=%220%200%2024%2024%22%20%20fill=%22none%22%20%20stroke=%22currentColor%22%20%20stroke-width=%222%22%20%20stroke-linecap=%22round%22%20%20stroke-linejoin=%22round%22%20%20class=%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-book-2%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22/%3E%3Cpath%20d=%22M19%204v16h-12a2%202%200%200%201%20-2%20-2v-12a2%202%200%200%201%202%20-2h12z%22%20/%3E%3Cpath%20d=%22M19%2016h-12a2%202%200%200%200%20-2%202%22%20/%3E%3Cpath%20d=%22M9%208h6%22%20/%3E%3C/svg%3E',
 								label: 'Commands',
 								items: [
 									{
 										type: 'button',
 										command: 'insertIf',
-										icon: 'data:image/svg+xml,...',
 										label: 'Move to route'
 									},
 									{
 										type: 'button',
 										command: 'insertIfElse',
-										icon: 'data:image/svg+xml,...',
 										label: 'Load story'
 									},
 									{type: 'separator'},
 									{
 										type: 'button',
 										command: 'insertVariable',
-										icon: 'data:image/svg+xml,...',
 										label: 'Transition'
 									},
 									{
 										type: 'button',
 										command: 'insertChance',
-										icon: 'data:image/svg+xml,...',
 										label: 'Wait'
 									},
 									{type: 'separator'},
 									{
 										type: 'button',
 										command: 'insertVariable',
-										icon: 'data:image/svg+xml,...',
 										label: 'Close'
 									},
 									{
 										type: 'button',
 										command: 'insertChance',
-										icon: 'data:image/svg+xml,...',
 										label: 'Lock'
 									}
 								]
 							},
 							{
+								type: 'menu',
+								icon: 'data:image/svg+xml,%3Csvg%20%20xmlns=%22http://www.w3.org/2000/svg%22%20%20width=%2224%22%20%20height=%2224%22%20%20viewBox=%220%200%2024%2024%22%20%20fill=%22none%22%20%20stroke=%22currentColor%22%20%20stroke-width=%222%22%20%20stroke-linecap=%22round%22%20%20stroke-linejoin=%22round%22%20%20class=%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-align-box-left-middle%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22/%3E%3Cpath%20d=%22M3%203m0%202a2%202%200%200%201%202%20-2h14a2%202%200%200%201%202%202v14a2%202%200%200%201%20-2%202h-14a2%202%200%200%201%20-2%20-2z%22%20/%3E%3Cpath%20d=%22M9%2015h-2%22%20/%3E%3Cpath%20d=%22M13%2012h-6%22%20/%3E%3Cpath%20d=%22M11%209h-4%22%20/%3E%3C/svg%3E',
+								label: 'Modifiers',
+								items: [
+									{
+										type: 'button',
+										command: 'insertIf',
+										label: 'If'
+									},
+									{
+										type: 'button',
+										command: 'insertIfElse',
+										label: 'If and Else'
+									},
+									{type: 'separator'},
+									{
+										type: 'button',
+										command: 'insertVariable',
+										label: 'Variable'
+									},
+									{
+										type: 'button',
+										command: 'insertChance',
+										label: 'Chance'
+									},
+									{
+										type: 'button',
+										command: 'insertDice',
+										label: 'Dice'
+									}
+								]
+							},
+							{
 								type: 'button',
-								icon: 'data:image/svg+xml,...',
+								icon: 'data:image/svg+xml,%3Csvg%20%20xmlns=%22http://www.w3.org/2000/svg%22%20%20width=%2224%22%20%20height=%2224%22%20%20viewBox=%220%200%2024%2024%22%20%20fill=%22none%22%20%20stroke=%22currentColor%22%20%20stroke-width=%222%22%20%20stroke-linecap=%22round%22%20%20stroke-linejoin=%22round%22%20%20class=%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-brackets-contain%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22/%3E%3Cpath%20d=%22M7%204h-4v16h4%22%20/%3E%3Cpath%20d=%22M17%204h4v16h-4%22%20/%3E%3Cpath%20d=%22M8%2016h.01%22%20/%3E%3Cpath%20d=%22M12%2016h.01%22%20/%3E%3Cpath%20d=%22M16%2016h.01%22%20/%3E%3C/svg%3E',
 								label: 'Brackets',
 								command: 'insertBrackets',
 								disabled: !editor.getDoc().somethingSelected()
