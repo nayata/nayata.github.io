@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.7.2',
+	version: '1.7.3',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -9,18 +9,27 @@ window.storyFormat({
 					commands: {
 						insertVariable(editor) {
 							editor.replaceSelection('[if condition]\n\n[end]');
+							editor.focus();
 						},
 						insertIfElse(editor) {
 							editor.replaceSelection('[if condition]\n\n[else]\n\n[end]');
+							editor.focus();
 						},
 						insertVariable(editor) {
 							editor.replaceSelection('[name = value]');
+							editor.focus();
 						},
 						insertChance(editor) {
 							editor.replaceSelection('[name chance value]');
+							editor.focus();
 						},
 						insertDice(editor) {
 							editor.replaceSelection('[name roll value]');
+							editor.focus();
+						},
+						insertBrackets(editor) {
+							editor.replaceSelection('[' + editor.getSelections() + ']');
+							editor.focus();
 						}
 					},
 					toolbar(editor, environment) {
@@ -33,7 +42,6 @@ window.storyFormat({
 									{
 										type: 'button',
 										command: 'insertIf',
-										disabled: true,
 										icon: 'data:image/svg+xml,...',
 										label: 'If'
 									},
@@ -47,7 +55,6 @@ window.storyFormat({
 									{
 										type: 'button',
 										command: 'insertVariable',
-										disabled: true,
 										icon: 'data:image/svg+xml,...',
 										label: 'variable'
 									},
@@ -60,11 +67,17 @@ window.storyFormat({
 									{
 										type: 'button',
 										command: 'insertDice',
-										disabled: true,
 										icon: 'data:image/svg+xml,...',
 										label: 'dice'
 									}
 								]
+							},
+							{
+								type: 'button',
+								iconOnly: true,
+								label: 'Brackets',
+								command: 'insertBrackets',
+								disabled: !editor.getDoc().somethingSelected()
 							}
 						];
 					}
