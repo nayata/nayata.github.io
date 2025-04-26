@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.8.2',
+	version: '1.8.3',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -33,12 +33,10 @@ window.storyFormat({
 						}
 					},
 					toolbar(editor, environment) {
-						const iconColor = environment.appTheme === 'dark' ? 'hsl(0, 0%, 30%)' : 'hsl(0, 0%, 70%)';
-
 						return [
 							{
 								type: 'menu',
-								icon: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='${iconColor}' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-align-box-left-middle'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z' /%3E%3Cpath d='M9 15h-2' /%3E%3Cpath d='M13 12h-6' /%3E%3Cpath d='M11 9h-4' /%3E%3C/svg%3E`,
+								icon: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-align-box-left-middle'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z' /%3E%3Cpath d='M9 15h-2' /%3E%3Cpath d='M13 12h-6' /%3E%3Cpath d='M11 9h-4' /%3E%3C/svg%3E`,
 								label: 'Commands',
 								items: [
 									{
@@ -77,7 +75,7 @@ window.storyFormat({
 							},
 							{
 								type: 'menu',
-								icon: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='${iconColor}' strokeWidth='2' strokeLinecap='round' strokeLinejoin='round'%3E %3Cpath d='M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z' /%3E %3Cpath d='M9 13h-2' /%3E %3Cpath d='M13 10h-6' /%3E %3Cpath d='M11 7h-4' /%3E %3C/svg%3E`,
+								icon: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-sticker-2'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M6 4h12a2 2 0 0 1 2 2v7h-5a2 2 0 0 0 -2 2v5h-7a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2z' /%3E%3Cpath d='M20 13v.172a2 2 0 0 1 -.586 1.414l-4.828 4.828a2 2 0 0 1 -1.414 .586h-.172' /%3E%3C/svg%3E`,
 								label: 'Modifiers',
 								items: [
 									{
@@ -110,7 +108,7 @@ window.storyFormat({
 							},
 							{
 								type: 'button',
-								icon: 'data:image/svg+xml,%3Csvg%20%20xmlns=%22http://www.w3.org/2000/svg%22%20%20width=%2224%22%20%20height=%2224%22%20%20viewBox=%220%200%2024%2024%22%20%20fill=%22none%22%20%20stroke=%22currentColor%22%20%20stroke-width=%222%22%20%20stroke-linecap=%22round%22%20%20stroke-linejoin=%22round%22%20%20class=%22icon%20icon-tabler%20icons-tabler-outline%20icon-tabler-brackets-contain%22%3E%3Cpath%20stroke=%22none%22%20d=%22M0%200h24v24H0z%22%20fill=%22none%22/%3E%3Cpath%20d=%22M7%204h-4v16h4%22%20/%3E%3Cpath%20d=%22M17%204h4v16h-4%22%20/%3E%3Cpath%20d=%22M8%2016h.01%22%20/%3E%3Cpath%20d=%22M12%2016h.01%22%20/%3E%3Cpath%20d=%22M16%2016h.01%22%20/%3E%3C/svg%3E',
+								icon: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='icon icon-tabler icons-tabler-outline icon-tabler-brackets'%3E%3Cpath stroke='none' d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M8 4h-3v16h3' /%3E%3Cpath d='M16 4h3v16h-3' /%3E%3C/svg%3E`,
 								label: 'Brackets',
 								command: 'insertBrackets',
 								disabled: !editor.getDoc().somethingSelected()
