@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.7.8',
+	version: '1.7.9',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -38,7 +38,7 @@ window.storyFormat({
 						return [
 							{
 								type: 'menu',
-								icon: `data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="${iconColor}" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" > <path d="M19 4v16h-12a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12z" /> <path d="M19 16h-12a2 2 0 0 0 -2 2" /> <path d="M9 8h6" /></svg>`,
+								icon: `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='${iconColor}' strokeWidth='1.5' strokeLinecap='round' strokeLinejoin='round'%3E %3Cpath d='M3 3m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z' /%3E %3Cpath d='M9 13h-2' /%3E %3Cpath d='M13 10h-6' /%3E %3Cpath d='M11 7h-4' /%3E %3C/svg%3E`,
 								label: 'Commands',
 								items: [
 									{
