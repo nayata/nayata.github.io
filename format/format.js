@@ -1,13 +1,13 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.7.3',
+	version: '1.7.4',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
 			'^2.4.0-alpha1': {
 				codeMirror: {
 					commands: {
-						insertVariable(editor) {
+						insertIf(editor) {
 							editor.replaceSelection('[if condition]\n\n[end]');
 							editor.focus();
 						},
@@ -56,25 +56,70 @@ window.storyFormat({
 										type: 'button',
 										command: 'insertVariable',
 										icon: 'data:image/svg+xml,...',
-										label: 'variable'
+										label: 'Variable'
 									},
 									{
 										type: 'button',
 										command: 'insertChance',
 										icon: 'data:image/svg+xml,...',
-										label: 'chance'
+										label: 'Chance'
 									},
 									{
 										type: 'button',
 										command: 'insertDice',
 										icon: 'data:image/svg+xml,...',
-										label: 'dice'
+										label: 'Dice'
+									}
+								]
+							},
+							{
+								type: 'menu',
+								icon: 'data:image/svg+xml,...',
+								label: 'Commands',
+								items: [
+									{
+										type: 'button',
+										command: 'insertIf',
+										icon: 'data:image/svg+xml,...',
+										label: 'Move to route'
+									},
+									{
+										type: 'button',
+										command: 'insertIfElse',
+										icon: 'data:image/svg+xml,...',
+										label: 'Load story'
+									},
+									{type: 'separator'},
+									{
+										type: 'button',
+										command: 'insertVariable',
+										icon: 'data:image/svg+xml,...',
+										label: 'Transition'
+									},
+									{
+										type: 'button',
+										command: 'insertChance',
+										icon: 'data:image/svg+xml,...',
+										label: 'Wait'
+									},
+									{type: 'separator'},
+									{
+										type: 'button',
+										command: 'insertVariable',
+										icon: 'data:image/svg+xml,...',
+										label: 'Close'
+									},
+									{
+										type: 'button',
+										command: 'insertChance',
+										icon: 'data:image/svg+xml,...',
+										label: 'Lock'
 									}
 								]
 							},
 							{
 								type: 'button',
-								iconOnly: true,
+								icon: 'data:image/svg+xml,...',
 								label: 'Brackets',
 								command: 'insertBrackets',
 								disabled: !editor.getDoc().somethingSelected()
