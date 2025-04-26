@@ -1,40 +1,72 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.7.1',
+	version: '1.7.2',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
 			'^2.4.0-alpha1': {
 				codeMirror: {
-					mode() {
-						return {
-							startState() {
-								return {};
-							},
-							token(stream, state) {
-								// Event and Choice
-								if (stream.sol() && stream.match(/^\[[^[].*\]$/)) {
-									return 'keyword';
-								}
-								if (stream.sol() && stream.next() == "-") {
-									stream.skipTo(":");
-									if (stream.backUp(1) == ":") return 'keyword';
-								}
-					
-								// Are we at an insert?
-								if (stream.match(/^\[.+?\]/)) {
-									return 'keyword';
-								}
-					
-								// Try scanning forward to an insert or link.
-								if (stream.eatWhile(/[^[{]/)) {
-									return 'text';
-								}
-
-								stream.skipToEnd();
-								return 'text';
+					commands: {
+						insertVariable(editor) {
+							editor.replaceSelection('[if condition]\n\n[end]');
+						},
+						insertIfElse(editor) {
+							editor.replaceSelection('[if condition]\n\n[else]\n\n[end]');
+						},
+						insertVariable(editor) {
+							editor.replaceSelection('[name = value]');
+						},
+						insertChance(editor) {
+							editor.replaceSelection('[name chance value]');
+						},
+						insertDice(editor) {
+							editor.replaceSelection('[name roll value]');
+						}
+					},
+					toolbar(editor, environment) {
+						return [
+							{
+								type: 'menu',
+								icon: 'data:image/svg+xml,...',
+								label: 'Modifiers',
+								items: [
+									{
+										type: 'button',
+										command: 'insertIf',
+										disabled: true,
+										icon: 'data:image/svg+xml,...',
+										label: 'If'
+									},
+									{
+										type: 'button',
+										command: 'insertIfElse',
+										icon: 'data:image/svg+xml,...',
+										label: 'If and Else'
+									},
+									{type: 'separator'},
+									{
+										type: 'button',
+										command: 'insertVariable',
+										disabled: true,
+										icon: 'data:image/svg+xml,...',
+										label: 'variable'
+									},
+									{
+										type: 'button',
+										command: 'insertChance',
+										icon: 'data:image/svg+xml,...',
+										label: 'chance'
+									},
+									{
+										type: 'button',
+										command: 'insertDice',
+										disabled: true,
+										icon: 'data:image/svg+xml,...',
+										label: 'dice'
+									}
+								]
 							}
-						};
+						];
 					}
 				},
 				references: {
