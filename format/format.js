@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.5.1',
+	version: '1.5.3',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -11,6 +11,7 @@ window.storyFormat({
 							editor.focus();
 							var doc = editor.getDoc();
 							doc.replaceRange('[move route]', doc.getCursor());
+							editor.setCursor(editor.getCursor().line, editor.getCursor().ch+6);
 
 						},
 						insertLoad(editor) {
@@ -41,9 +42,9 @@ window.storyFormat({
 							//editor.focus();
 						},
 						insertDice(editor) {
-							editor.focus();
+							
 							editor.replaceSelection('[name roll value]');
-							editor.setCursor(editor.getCursor().line, '[name roll value]'.length);
+							editor.focus();
 							
 						},
 						insertBrackets(editor) {
