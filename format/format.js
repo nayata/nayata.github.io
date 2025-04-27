@@ -1,13 +1,11 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.3.3',
+	version: '1.3.4',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
 			'^2.4.0-alpha1': {
 				codeMirror: {
-					theme : baseTheme
-					,
 					commands: {
 						insertMove(editor) {
 							editor.replaceSelection('[move route]');
