@@ -17,8 +17,9 @@ window.storyFormat({
 						},
 						insertLoad(editor) {
 							editor.replaceSelection('[move route]');
-							editor.setCursor(editor.getCursor().line, '[move route]'.length);
 							editor.focus();
+							editor.setCursor(editor.getCursor().line);
+							
 						},
 
 						insertIf(editor) {
