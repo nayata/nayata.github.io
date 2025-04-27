@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.4.5',
+	version: '1.4.6',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -10,22 +10,15 @@ window.storyFormat({
 						insertMove(editor) {
 							editor.focus();
 
-							if( editor.getDoc().somethingSelected()) {
-								editor.replaceSelection('[move route]');
-							}
-							else {
-								editor.replaceRange('[move route]', { line: editor.getCursor().line, ch: '[move route]'.length - 1 });
-							}
+							editor.replaceSelection('[move route]', start);
+							editor.setCursor(editor.getCursor().line, '[move route]'.length - 1);
+
 						},
 						insertLoad(editor) {
 							editor.focus();
 
-							if( editor.getDoc().somethingSelected()) {
-								editor.replaceSelection('[move route]');
-							}
-							else {
-								editor.replaceRange('[move route]', editor.getCursor().line, '[move route]'.length - 1);
-							}
+							editor.replaceSelection('[move route]');
+							editor.setCursor(editor.getCursor().line+1, 0);
 						},
 
 						insertIf(editor) {
@@ -38,9 +31,9 @@ window.storyFormat({
 							editor.focus();
 						},
 						insertVariable(editor) {
-							
-							editor.focus();
 							editor.replaceSelection('[name = value]');
+							editor.focus();
+							editor.setCursor(editor.getCursor().line, '[name = value]'.length - 1);
 						},
 						insertChance(editor) {
 							editor.replaceSelection('[name chance value]');
