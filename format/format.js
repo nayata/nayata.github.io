@@ -1,12 +1,21 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.8.8',
+	version: '1.8.9',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
 			'^2.4.0-alpha1': {
 				codeMirror: {
 					commands: {
+						insertMove(editor) {
+							editor.replaceSelection('[move route]');
+							editor.focus();
+						},
+						insertLoad(editor) {
+							editor.replaceSelection('[story name]');
+							editor.focus();
+						},
+
 						insertIf(editor) {
 							editor.replaceSelection('[if condition]\n\n[end]');
 							editor.focus();
@@ -42,12 +51,12 @@ window.storyFormat({
 								items: [
 									{
 										type: 'button',
-										command: 'insertIf',
+										command: 'insertMove',
 										label: 'Move to route'
 									},
 									{
 										type: 'button',
-										command: 'insertIfElse',
+										command: 'insertLoad',
 										label: 'Load story'
 									},
 									{type: 'separator'},
@@ -122,6 +131,13 @@ window.storyFormat({
 								return {};
 							},
 							token(stream, state) {
+								if (stream.sol() && stream.next() == "-") {
+									if (stream.skipTo(":") != null) {
+										stream.skipToEnd();
+										return 'keyword';
+									}
+								}
+
 								// Are we at an insert?
 								if (stream.match(/^\[.+?\]/)) {
 									return 'keyword';
