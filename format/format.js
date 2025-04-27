@@ -134,7 +134,8 @@ window.storyFormat({
 							},
 							token(stream, state) {
 								if (stream.sol() && stream.next() == "-") {
-									choice = true;
+									choice = stream.skipTo(':');
+
 									//stream.skipTo(':');
 
 									//stream.eatWhile(stream.next() != ":");
@@ -145,14 +146,12 @@ window.storyFormat({
 										//return 'keyword';
 									//}
 										//return 'keyword';
+									
 								}
 								if (choice) {
-									stream.skipTo(':');
+									//stream.skipTo(':');
+									stream.skipToEnd();
 									return 'keyword';
-								}
-								if (stream.eol() && choice) {
-									choice = false;
-									return;
 								}
 
 								// Are we at an insert?
