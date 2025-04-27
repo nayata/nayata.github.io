@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.4.9',
+	version: '1.5.0',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -8,17 +8,18 @@ window.storyFormat({
 				codeMirror: {
 					commands: {
 						insertMove(editor) {
-							
-
-							editor.replaceSelection('[move route]', 'start');
+							var line = editor.getCursor().line;
+							editor.replaceSelection('[move route]');
 							editor.focus();
-							editor.setCursor(editor.getCursor().line, '[move route]'.length);
+							editor.setCursor(line, editor.getCursor().ch.length);
 
 						},
 						insertLoad(editor) {
+							var line = editor.getCursor().line+1;
 							editor.replaceSelection('[move route]');
 							editor.focus();
-							editor.setCursor(editor.getCursor().line);
+							editor.setCursor(line, 0);
+							editor.setCursor(line-1, 9);
 							
 						},
 
