@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.3.5',
+	version: '1.3.6',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -14,13 +14,13 @@ window.storyFormat({
 						},
 						insertLoad(editor) {
 							editor.replaceSelection('[story name]');
-							editor.setCursor('[story name]'.length);
+							editor.setCursor(editor.getCursor().line, '[story name]'.length);
 							editor.focus();
 						},
 
 						insertIf(editor) {
 							editor.replaceSelection('[if condition]\n\n[end]');
-							editor.setCursor(16);
+							editor.setCursor('[if condition]\n\n[end]'.length);
 							editor.focus();
 						},
 						insertIfElse(editor) {
