@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.3.4',
+	version: '1.3.5',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -9,7 +9,8 @@ window.storyFormat({
 					commands: {
 						insertMove(editor) {
 							editor.replaceSelection('[move route]');
-							editor.setCursor(editor.getCursor()+6);
+							editor.setCursor(editor.getCursor(), '[move route]'.length);
+							editor.focus();
 						},
 						insertLoad(editor) {
 							editor.replaceSelection('[story name]');
@@ -154,7 +155,7 @@ window.storyFormat({
 									if (choice) {
 										stream.skipToEnd();
 										choice = false;
-										return 'attribute';
+										return 'keyword';
 									}
 									else {
 										stream.skipToEnd();
@@ -163,7 +164,7 @@ window.storyFormat({
 								}
 							
 								if (stream.match(/^\[.+?\]/)) {
-									return 'attribute';
+									return 'keyword';
 								}
 							
 								stream.next();
