@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.3.9',
+	version: '1.4.0',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -31,16 +31,19 @@ window.storyFormat({
 							editor.focus();
 						},
 						insertVariable(editor) {
-							editor.replaceSelection('[name = value]');
+							
 							editor.focus();
+							editor.replaceSelection('[name = value]');
 						},
 						insertChance(editor) {
 							editor.replaceSelection('[name chance value]');
-							editor.focus();
+							//editor.focus();
 						},
 						insertDice(editor) {
-							editor.replaceSelection('[name roll value]');
 							editor.focus();
+							editor.replaceSelection('[name roll value]');
+							editor.setCursor(editor.getCursor().line, '[name roll value]'.length);
+							
 						},
 						insertBrackets(editor) {
 							editor.replaceSelection('[' + editor.getSelections() + ']');
