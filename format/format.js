@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.2.6',
+	version: '1.2.7',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -137,31 +137,25 @@ window.storyFormat({
 									//if (stream.skipTo(':'))	return 'keyword';
 								//}
 
-								if (stream.sol() && stream.peek() == "-") {
-									if (stream.skipTo(':'))	{
-										choice = true;
-										return 'text';
-									}
-									else {
-										choice = false;
-										return 'text';
-									}
-								}
-								if (choice && stream.peek() == ":") {
-									return 'keyword';
-								}
 
-								// Are we at an insert?
+								if (stream.eatSpace()) return null
+
+								if (stream.match('//')) {
+								  stream.skipToEnd();
+								  return 'comment'
+								}
+							
+								if (stream.match('-')) {
+								  if (stream.skipTo(':')) stream.next();
+								  else stream.skipToEnd();
+								  return 'keyword'
+								}
+							
 								if (stream.match(/^\[.+?\]/)) {
 									return 'keyword';
 								}
-					
-								// Try scanning forward to an insert or link.
-								if (stream.eatWhile(/[^[{]/)) {
-									return 'text';
-								}
-
-								stream.skipToEnd();
+							
+								stream.next()
 								return 'text';
 							}
 						};
