@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.4.2',
+	version: '1.4.3',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -8,19 +8,9 @@ window.storyFormat({
 				codeMirror: {
 					commands: {
 						insertMove(editor) {
+							editor.replaceSelection('[move route]');
 							editor.focus();
-							var selection = editor.getSelection();
-
-							if(selection.length > 0){
-								editor.replaceSelection(str);
-							}
-							else{
-								var doc = editor.getDoc();
-								var cursor = doc.getCursor();
-								var pos = { line: cursor.line, ch: cursor.ch }
-
-								doc.replaceRange(str, pos);
-							}
+							editor.setCursor(editor.getCursor().line, '[move route]'.length);
 						},
 						insertLoad(editor) {
 							editor.replaceSelection('[story name]');
@@ -34,7 +24,7 @@ window.storyFormat({
 						insertIf(editor) {
 							editor.replaceSelection('[if condition]\n\n[end]');
 							editor.focus();
-							editor.setCursor(editor.getCursor().line+3, '[if condition]\n\n[end]'.length);
+							editor.setCursor(editor.getCursor().line+3, 5);
 						},
 						insertIfElse(editor) {
 							editor.replaceSelection('[if condition]\n\n[else]\n\n[end]');
