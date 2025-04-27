@@ -6,18 +6,22 @@ window.storyFormat({
 		twine: {
 			'^2.4.0-alpha1': {
 				codeMirror: {
+					theme : baseTheme
+					,
 					commands: {
 						insertMove(editor) {
 							editor.replaceSelection('[move route]');
+							editor.setCursor(editor.getCursor()+6);
 						},
 						insertLoad(editor) {
 							editor.replaceSelection('[story name]');
-							editor.setCursor('[story name]');
+							editor.setCursor('[story name]'.length);
 							editor.focus();
 						},
 
 						insertIf(editor) {
 							editor.replaceSelection('[if condition]\n\n[end]');
+							editor.setCursor(16);
 							editor.focus();
 						},
 						insertIfElse(editor) {
@@ -135,7 +139,7 @@ window.storyFormat({
 
 								if (stream.match('//')) {
 								  stream.skipToEnd();
-								  return 'bracket';
+								  return 'meta';
 								}
 								
 								if (stream.match('-')) {
