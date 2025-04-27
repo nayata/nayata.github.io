@@ -1,3 +1,17 @@
+import {EditorView} from "@codemirror/view"
+
+let baseTheme = EditorView.baseTheme({
+  ".cm-keyword": {
+	color: "#eee"
+  },
+  "&light .cm-o-replacement": {
+    backgroundColor: "#04c"
+  },
+  "&dark .cm-o-replacement": {
+    backgroundColor: "#5bf"
+  }
+})
+
 window.storyFormat({
 	name: 'My Story Format',
 	version: '1.3.1',
@@ -6,6 +20,8 @@ window.storyFormat({
 		twine: {
 			'^2.4.0-alpha1': {
 				codeMirror: {
+					theme : baseTheme
+					,
 					commands: {
 						insertMove(editor) {
 							editor.replaceSelection('[move route]');
@@ -133,18 +149,13 @@ window.storyFormat({
 								return {choice: false};
 							},
 							token(stream, state) {
-								//if (stream.sol() && stream.peek() == "-") {
-									//if (stream.skipTo(':'))	return 'keyword';
-								//}
-
-
 								if (stream.eatSpace()) return null;
 
 								if (stream.match('//')) {
 								  stream.skipToEnd();
-								  return 'attribute';
+								  return 'bracket';
 								}
-							
+								
 								if (stream.match('-')) {
 									if (stream.skipTo(':')) {
 										choice = true;
@@ -155,12 +166,11 @@ window.storyFormat({
 									}
 									return 'text';
 								}
-
 								if (stream.match(':')) {
 									if (choice) {
 										stream.skipToEnd();
 										choice = false;
-										return 'meta';
+										return 'attribute';
 									}
 									else {
 										stream.skipToEnd();
@@ -169,7 +179,7 @@ window.storyFormat({
 								}
 							
 								if (stream.match(/^\[.+?\]/)) {
-									return 'meta';
+									return 'attribute';
 								}
 							
 								stream.next();
