@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.9.8',
+	version: '1.2.1',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -131,7 +131,7 @@ window.storyFormat({
 								return {};
 							},
 							token(stream, state) {
-								if (stream.sol() && stream.next() == "-") {
+								if (stream.sol() && stream.peek() == "-") {
 									//choice = stream.skipTo(':');
 									//return 'text';
 									//stream.skipTo(':');
@@ -141,7 +141,7 @@ window.storyFormat({
 									stream.skipTo(':');
 									//return 'text';
 									//stream.eatWhile(stream.next() != null);
-									return 'keyword';
+									return 'def';
 									//stream.skipToEnd();
 
 									//if (stream.skipTo(':')) {
@@ -151,9 +151,9 @@ window.storyFormat({
 										//return 'keyword';
 									
 								}
-								//if (choice && stream.match(/^[^:]*:\s*(.*)$/)) {
-									//return 'keyword';
-								//}
+								if (stream.peek() == ":") {
+									return 'keyword';
+								}
 
 								// Are we at an insert?
 								if (stream.match(/^\[.+?\]/)) {
