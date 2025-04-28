@@ -1,6 +1,6 @@
 window.storyFormat({
 	name: 'My Story Format',
-	version: '1.5.4',
+	version: '1.6.0',
 	source: '<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">\n\t\t<meta charset=\"utf-8\"/>\n\t\t<title>{{STORY_NAME}}</title>\n\t</head>\n\t<body>\n\t\t{{STORY_DATA}}\n\t\t<page>\n\t\t</page>\n\t</body>\n</html>',
  	editorExtensions: {
 		twine: {
@@ -8,27 +8,33 @@ window.storyFormat({
 				codeMirror: {
 					commands: {
 						insertMove(editor) {
-							var line = editor.getCursor().line;
-							var char = editor.getCursor().ch;
-
 							editor.replaceSelection('[move route]');
-							editor.setCursor(line, char+'[move route]'.length);
 							editor.focus();
 						},
 						insertLoad(editor) {
-							var line = editor.getCursor().line;
-							var char = editor.getCursor().ch;
-
-							editor.replaceSelection('[move route]');
-
+							editor.replaceSelection('[story name]');
 							editor.focus();
-							editor.setCursor(line, char+'[move route]'.length);
+						},
+						insertTransition(editor) {
+							editor.replaceSelection('[transition]');
+							editor.focus();
+						},
+						insertWait(editor) {
+							editor.replaceSelection('[wait time]');
+							editor.focus();
+						},
+						insertClose(editor) {
+							editor.replaceSelection('[close]');
+							editor.focus();
+						},
+						insertLock(editor) {
+							editor.replaceSelection('[lock]');
+							editor.focus();
 						},
 
 						insertIf(editor) {
 							editor.replaceSelection('[if condition]\n\n[end]');
 							editor.focus();
-							editor.setCursor(editor.getCursor().line+2, 5);
 						},
 						insertIfElse(editor) {
 							editor.replaceSelection('[if condition]\n\n[else]\n\n[end]');
@@ -37,17 +43,14 @@ window.storyFormat({
 						insertVariable(editor) {
 							editor.replaceSelection('[name = value]');
 							editor.focus();
-							editor.setCursor(editor.getCursor().line, '[name = value]'.length - 1);
 						},
 						insertChance(editor) {
 							editor.replaceSelection('[name chance value]');
-							//editor.focus();
+							editor.focus();
 						},
 						insertDice(editor) {
-							
 							editor.replaceSelection('[name roll value]');
 							editor.focus();
-							
 						},
 						insertBrackets(editor) {
 							editor.replaceSelection('[' + editor.getSelections() + ']');
@@ -75,23 +78,23 @@ window.storyFormat({
 									{type: 'separator'},
 									{
 										type: 'button',
-										command: 'insertVariable',
+										command: 'insertTransition',
 										label: 'Transition'
 									},
 									{
 										type: 'button',
-										command: 'insertChance',
+										command: 'insertWait',
 										label: 'Wait'
 									},
 									{type: 'separator'},
 									{
 										type: 'button',
-										command: 'insertVariable',
+										command: 'insertClose',
 										label: 'Close'
 									},
 									{
 										type: 'button',
-										command: 'insertChance',
+										command: 'insertLock',
 										label: 'Lock'
 									}
 								]
