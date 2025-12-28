@@ -177,9 +177,9 @@ permalink: /hexe-api/
 					<p>Get an object from the prefab hierarchy with the given name <code>n</code>.</p>
 				</div>
 			</div>
-			<div class="field "><a name="getAll"></a>
+			<div class="field "><a name="all"></a>
 				<h3 class="anchor">
-					<code><a href="#getAll"><span class="identifier">getAll</span></a>&lt;<span class="type">T</span>&gt;(<span style="white-space:nowrap">c:<a class="type" title="Class - An abstract type that represents a Class." href="../Class.html">Class</a>&lt;<span class="type">T</span>&gt;,</span> <span style="white-space:nowrap">?all:<a class="type" title="Array - An Array is a storage for values." href="../Array.html">Array</a>&lt;<span class="type">T</span>&gt;</span>):<a class="type" title="Array - An Array is a storage for values." href="../Array.html">Array</a>&lt;<span class="type">T</span>&gt;</code>
+					<code><a href="#all"><span class="identifier">all</span></a>&lt;<span class="type">T</span>&gt;(<span style="white-space:nowrap">c:<a class="type" title="Class - An abstract type that represents a Class." href="../Class.html">Class</a>&lt;<span class="type">T</span>&gt;,</span> <span style="white-space:nowrap">?all:<a class="type" title="Array - An Array is a storage for values." href="../Array.html">Array</a>&lt;<span class="type">T</span>&gt;</span>):<a class="type" title="Array - An Array is a storage for values." href="../Array.html">Array</a>&lt;<span class="type">T</span>&gt;</code>
 				</h3>
 				<div class="doc">
 					<p>Find all objects of the given class <code>c</code> in the prefab hierarchy.</p>
