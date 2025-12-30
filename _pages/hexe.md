@@ -159,11 +159,11 @@ Note that some objects cannot have children, such as `Text`, `Interactive`, and 
 
 ### Class references for linked prefabs
 
-Linked (nested) prefabs can also have a reference to a Haxe class assigned to them. This allows you to bind additional logic or behavior to a prefab instance directly from the editor.
+Linked (nested) prefabs can also have a reference to a class assigned to them. This allows you to bind additional logic or behavior to a prefab instance directly from the editor.
 
 **Important:** the referenced class must be known to the Haxe compiler. In practice, this means the class must be mentioned somewhere in your codebase (for example, by importing it or otherwise referencing it), otherwise it may be removed by dead code elimination and will not be available at runtime.
 
-For details on how these class references are used and instantiated during gameplay, see 'In-game implementation'.
+For details on how these class references are used see “In-game implementation”.
 <br>
 
 ## [Introduction](https://nayata.github.io/hexe)  
