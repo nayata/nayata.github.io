@@ -85,12 +85,10 @@ permalink: /hexe-api/
 						</div>
 						<div class="field "><a name="make"></a>
 							<h3 class="anchor">
-								<code><span class="label label-static">static</span><a href="#make"><span class="identifier">make</span></a>(<span style="white-space:nowrap">path:<a class="type" title="String - The basic String class." href="../String.html">String</a>,</span> <span style="white-space:nowrap">type:<a class="type" title="Class - An abstract type that represents a Class." href="../Class.html">Class</a>&lt;<a class="type" title="Dynamic - Dynamic is a special type which is compatible with all other types." href="../Dynamic.html">Dynamic</a>&gt;,</span> <span style="white-space:nowrap">?parent:<a class="type" title="h2d.Object - A base 2D class that all scene tree elements inherit from." href="../h2d/Object.html">Object</a></span>):<a class="type" title="Dynamic - Dynamic is a special type which is compatible with all other types." href="../Dynamic.html">Dynamic</a></code>
+								<code><span class="label label-static">static</span><a href="#make"><span class="identifier">make</span></a>(<span style="white-space:nowrap">path:<a class="type" title="String - The basic String class." href="../String.html">String</a>,</span> <span style="white-space:nowrap">object:<a class="type" title="Prefab." href="../Prefab.html">Prefab</a>,</span> <span style="white-space:nowrap">?field:<a class="type" title="Array - An Array is a storage for values." href="../Array.html">Array</a>&lt;<a class="type" title="hxe.Field" href="../hxe/Field.html">Field</a>&gt;</span>):<a class="type" title="Void - The standard Void type." href="../Void.html">Void</a></code>
 							</h3>
 							<div class="doc">
-								<p>Create a Prefab with a given class <code>type</code>, load data from
-									<code>path</code> and assign all created hierarchy objects to fields of this
-									instance.</p>
+								<p>Initializes an existing Prefab instance by loading a hierarchy from the given <code>path</code> and attaching all loaded objects as children of this prefab. The loaded hierarchy is stored in the hierarchy field, and any objects whose names match fields of this Prefab instance are automatically assigned to those fields.</p>
 								<p class="javadoc">Parameters:</p>
 								<table class="table table-bordered params">
 									<tr>
@@ -101,21 +99,29 @@ permalink: /hexe-api/
 										</td>
 									</tr>
 									<tr>
-										<th style="width:25%;"><code>type</code></th>
+										<th style="width:25%;"><code>object</code></th>
 										<td>
-											<p>Prefab class. All objects from the loaded hierarchy will be assigned to
-												the fields of this instance.</p>
+											<p>An existing <code>Prefab</code> instance to initialize and populate with the loaded hierarchy.</p>
 										</td>
 									</tr>
 									<tr>
-										<th style="width:25%;"><code>parent</code></th>
+										<th style="width:25%;"><code>field</code></th>
 										<td>
-											<p>An optional parent
-												<code><a href="../h2d/Object.html#Object">h2d.Object</a></code> instance
-												to which prefab adds itself if set.</p>
+											<p>An optional <code><a href="../hxe/Field.html#Field">Field</a></code>
+												structure to override default values ​​for an object in the prefab
+												hierarchy(text, texture atlas tile. eg: "[{ name : "label", type :
+												"text", value : "new label" }]").</p>
 										</td>
 									</tr>
 								</table>
+							</div>
+						</div>
+						<div class="field "><a name="read"></a>
+							<h3 class="anchor">
+								<code><span class="label label-static">static</span><a href="#read"><span class="identifier">read</span></a>(<span style="white-space:nowrap">path:<a class="type" title="String - The basic String class." href="../String.html">String</a></span>):<a class="type" title="Data." href="../Data.html">Data</a></code>
+							</h3>
+							<div class="doc">
+								<p>Get json <code>hxe.Lib</code> typedef <code>Data</code> of the Prefab with the given name <code>path</code> from the <code>res</code> folder.</p>
 							</div>
 						</div>
 						<div class="field "><a name="setCache"></a>
