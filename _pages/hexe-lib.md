@@ -46,7 +46,7 @@ Include the library in your project's `.hxml`:
 
 # Load Prefab
 
-Loading a prefab and adding it to the scene.
+Loading a **card.prefab** and adding it to the scene.
 
 ```haxe
 class App extends hxd.App {
@@ -67,23 +67,33 @@ class App extends hxd.App {
 }
 ```
 
+At this point, the prefab is successfully created and added to the scene. However, loading a prefab is usually only the first step.
 
+In a real game, a prefab is rarely static — you typically want to:
+
+- change text labels (for example, scores, names, or descriptions),
+- access and modify visual elements,
+- enable or disable parts of the prefab,
+- or react to game logic and user input.
+
+To do this, you need a way to **access the objects inside the prefab**.
 <br>
 
 
 # Modify Prefab
 
-Get and change objects from the prefab hierarchy.
+Once a prefab is created and placed in the scene, the next step is to **access and modify its internal objects**.
 
-The `get` method of a `hxe.Prefab` is used to get a specific object by the specified name.
+Each `hxe.Prefab` provides the `get` method, which allows you to retrieve an object
+from the prefab hierarchy by its name and then work with it in code.
 
-In this example, **card.prefab** and **button.prefab** were added to the scene. After that, the text for the *"title"* textfield from **card.prefab** was changed to "Deem".
+In this example, **card.prefab** and **button.prefab** are added to the scene.
+After that, the text of the *"title"* text field inside card.prefab is changed to "Deem".
 
-From **button.prefab** we get an `h2d.Interactive` named *"input"* and assign mouse events to this interactive.
+From **button.prefab**, an `h2d.Interactive` named "input" is retrieved, and mouse
+events are assigned to it.
 
-**Note:** for methods that belong to the top `h2d.Object`, you don't need to specify the type, and you can simply use the `get` method of the prefab: `button.get("over").visible = true;`
-
-`hxe.Prefab` also has a `typeof` method to get the class type of an object from its hierarchy.
+**Note:** In this example, prefabs are created directly and added to the scene using the `Prefab` constructor.
 
 
 ```haxe
@@ -104,7 +114,7 @@ class App extends hxd.App {
 		hxd.Res.initLocal();
 
 		// Add `card.prefab`
-		card = hxe.Lib.load("card", s2d);
+		card = new Prefab("card", s2d);
 		card.x = s2d.width * 0.5;
 		card.y = s2d.height * 0.5 - 64;
 
@@ -117,7 +127,7 @@ class App extends hxd.App {
 		trace(type);
 
 		// Add `button.prefab`
-		button = hxe.Lib.load("button", s2d);
+		button = new Prefab("button", s2d);
 		button.x = s2d.width * 0.5;
 		button.y = s2d.height - 128;
 
@@ -153,7 +163,34 @@ class App extends hxd.App {
 <center><video width="100%" autoplay muted loop><source src="/media/card.mp4" type="video/mp4"></video></center>
 <p></p>
 
+### Type safety and the get method
 
+For methods and properties that belong to the base `h2d.Object`, **you do not need to
+explicitly specify a class** - you can directly use the result of `get`:
+
+```haxe
+button.get("over").visible = true;
+```
+
+However, the `get` method also supports **explicit type checking**.
+
+It accepts an optional class parameter, which ensures that the retrieved object
+matches the expected type. If the object exists but does not match the specified
+class, `null` is returned.
+
+```haxe
+var input = button.get("input", h2d.Interactive);
+```
+
+If no class is provided, the object is returned directly using an unsafe cast.
+
+This makes `get` flexible: you can rely on quick access when you are confident about
+the prefab structure, or enforce strict type safety when needed.
+
+### Getting object types
+
+In addition to `get`, `hxe.Prefab` also provides the `typeof` method, which allows you
+to retrieve the actual class type of an object from the prefab hierarchy.
 <br>
 
 
@@ -163,7 +200,7 @@ Prefab hierarchy and childrens.
 
 The `get` method of a `hxe.Prefab` is used to get a specific object by the specified name.
 
-The `hxe.Prefab` also has a `getAll` method with which you can get an array of objects of the specified type. For example, we can get all objects with the `h2d.Bitmap` or `h2d.Text` type.
+The `hxe.Prefab` also has a `all` method with which you can get an array of objects of the specified type. For example, we can get all objects with the `h2d.Bitmap` or `h2d.Text` type.
 
 The prefab hierarchy is a *key->value* `Map` so objects in it are not equal to objects in the prefab `children` array. This is because objects with non-unique names overwrite each other.
 
@@ -186,12 +223,12 @@ class App extends hxd.App {
 		hxd.Res.initLocal();
 
 		// Add `board.prefab`
-		board = hxe.Lib.load("board", s2d);
+		board = new Prefab("board", s2d);
 		board.x = s2d.width * 0.5;
 		board.y = s2d.height * 0.5 - 64;
 
 		// Add `button.prefab`
-		button = hxe.Lib.load("button", s2d);
+		button = new Prefab("button", s2d);
 		button.x = s2d.width * 0.5;
 		button.y = s2d.height - 128;
 
@@ -209,8 +246,8 @@ class App extends hxd.App {
 
 	function onClick(e:hxd.Event) {
 		// Get all objects from `board` prefab hierarchy, 
-		// that matched with `Prefab` class
-		var cards:Array<Prefab> = board.getAll(Prefab);
+		// that matched with `Prefab` class (2 cards)
+		var cards:Array<Prefab> = board.all(Prefab);
 
 		for (card in cards) {
 			if (card.has("image")) trace(card.get("image").name);
@@ -218,10 +255,11 @@ class App extends hxd.App {
 			// Get all `h2d.Text` objects from this prefab hierarchy
 			// Set all text to "text"
 
-			// Note - central card not changed text, because 
-			// hierarchy accept only unique names, and this card 
-			// was overwrited with another.
-			var texfields = card.getAll(h2d.Text);
+			// Note: the last card did not change its text because the prefab hierarchy
+			// allows only unique object names. As a result, the `cards` array contains
+			// only two prefabs — one prefab was overwritten by another prefab
+			// with the same name.
+			var texfields = card.all(h2d.Text);
 			for (texfield in texfields) {
 				texfield.text = "text";
 			}
@@ -245,13 +283,18 @@ class App extends hxd.App {
 }
 ```
 
-
+**Note**: the last card did not change its text because the prefab `hierarchy` allows only unique object names. As a result, the `cards` array contains only two prefabs - one prefab was overwritten by another prefab with the same name.
 <br>
 
 
 # Prefab Make
 
-We can create a `Сlass` that will store all the necessary fields, and `hxe.Lib` will create an instance of this `Class` using the `make` method and assign the created objects to the corresponding instance fields.
+We can create a custom class **extending** `hxe.Prefab` that declares and stores all required fields of the prefab.
+
+When such a prefab is instantiated, its visual content is created automatically using `hxe.Lib.make`, and the corresponding objects from the prefab hierarchy are assigned to the fields of this class.
+
+After the prefab has been fully created and all objects are instantiated, the `init` method is called.
+This method can be used to define the prefab’s behavior - for example, to set up interactions, connect it to game logic, or configure runtime state.
 
 ```haxe
 import hxe.Prefab;
@@ -271,50 +314,60 @@ class App extends hxd.App {
 		hxd.Res.initLocal();
 
 		// Add `board.prefab`
-		board = hxe.Lib.load("board", s2d);
+		board = new Prefab("board", s2d);
 		board.x = s2d.width * 0.5;
 		board.y = s2d.height * 0.5 - 64;
 
 		// Make `Button` class instance from `button.prefab`
-		button = hxe.Lib.make("button", Button, s2d);
+		button = new Button("button", s2d);
 		button.x = s2d.width * 0.5;
 		button.y = s2d.height - 128;
 
 		// Label and interactive alredy exist
-		button.label.text = "Select";
-
-		button.input.onClick = onClick;
-		button.input.onOver = onOver;
-		button.input.onOut = onOut;
+		button.onClick = onClick;
+		button.text = "Select";
 	}
 
 
-	function onClick(e:hxd.Event) {
-		var grimCard = board.get("grimCard");
+	function onClick() {
+		var card:Prefab = board.get("grimCard");
 
-		var title:h2d.Text = grimCard.get("title");
+		var title:h2d.Text = card.get("title");
 		title.text = title.text == "Grimm" ? "Reaper" : "Grimm";
-	}
-
-
-	function onOver(e:hxd.Event) {
-		button.get("over").visible = true;
-	}
-
-
-	function onOut(e:hxd.Event) {
-		button.get("over").visible = false;
 	}
 }
 ```
 
-Button.hx
+`Button.hx`
 
 ```haxe
 class Button extends hxe.Prefab {
-	public var over:h2d.Bitmap;
-	public var input:h2d.Interactive;
-	public var label:h2d.Text;
+	var over:h2d.Object;
+	var input:h2d.Interactive;
+	var label:h2d.Text;
+
+	public var text(default, set):String = "text"; 
+	
+
+	override function init() {
+		input.onClick = function(e:hxd.Event) { onClick(); };
+		input.onOver = onOver;
+		input.onOut = onOut;
+	}
+
+	public dynamic function onClick() {}
+
+	function set_text(v) {
+		return text = label.text = v;
+	}
+
+	function onOver(e:hxd.Event) {
+		over.visible = true;
+	}
+
+	function onOut(e:hxd.Event) {
+		over.visible = false;
+	}
 }
 ```
 
@@ -327,8 +380,10 @@ class Button extends hxe.Prefab {
 If you want to use a prefab and at the same time don't want to change your class - you can use the `bind` method of the `hxe.Lib` library to "inject" the required prefab.
 
 ```haxe
+import hxe.Prefab;
+
 class App extends hxd.App {
-	var board:hxe.Prefab;
+	var board:Prefab;
 	var button:Button;
 
 	
@@ -342,11 +397,11 @@ class App extends hxd.App {
 		hxd.Res.initLocal();
 
 		// Add `board.prefab`
-		board = hxe.Lib.load("board", s2d);
+		board = new Prefab("board", s2d);
 		board.x = s2d.width * 0.5;
 		board.y = s2d.height * 0.5 - 64;
 
-		// new `Button` class instance
+		// new `Button` extending `h2d.Object` instance
 		button = new Button(s2d);
 		button.x = s2d.width * 0.5;
 		button.y = s2d.height - 128;
@@ -358,9 +413,9 @@ class App extends hxd.App {
 
 
 	function onClick() {
-		var grimCard = board.get("grimCard");
+		var card:Prefab = board.get("grimCard");
 
-		var title:h2d.Text = grimCard.get("title");
+		var title:h2d.Text = card.get("title");
 		title.text = title.text == "Grimm" ? "Reaper" : "Grimm";
 	}
 }
@@ -388,14 +443,11 @@ class Button extends h2d.Object {
 		input.onOut = onOut;
 	}
 
-
 	public dynamic function onClick() {}
-
 
 	function set_text(v) {
 		return text = label.text = v;
 	}
-
 
 	function onOver(e:hxd.Event) {
 		over.visible = true;
@@ -418,8 +470,10 @@ Using the editor you can override some values ​​of objects in the prefab. Yo
 
 
 ```haxe
+import hxe.Prefab;
+
 class App extends hxd.App {
-	var card:hxe.Prefab;
+	var card:Prefab;
 
 	
 	static function main() {
@@ -436,7 +490,7 @@ class App extends hxd.App {
 		
 		var field = { name : "image", type : "bitmap", value : "sword" };
 
-		var card = hxe.Lib.load("card", s2d, [field]);
+		var card = new Prefab("card", s2d, [field]);
 		card.x = s2d.width * 0.5;
 		card.y = s2d.height * 0.5;
 	}
