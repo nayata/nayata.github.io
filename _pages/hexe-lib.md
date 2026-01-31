@@ -88,7 +88,7 @@ Each `hxe.Prefab` provides the `get` method, which allows you to retrieve an obj
 from the prefab hierarchy by its name and then work with it in code.
 
 In this example, **card.prefab** and **button.prefab** are added to the scene.
-After that, the text of the *"title"* text field inside card.prefab is changed to "Deem".
+After that, the text of the *"title"* text field inside *card* prefab is changed to "Deem".
 
 From **button.prefab**, an `h2d.Interactive` named "input" is retrieved, and mouse
 events are assigned to it.
