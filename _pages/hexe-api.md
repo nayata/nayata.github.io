@@ -170,9 +170,9 @@ permalink: /hexe-api/
 							</td>
 						</tr>
 						<tr>
-							<th style="width:25%;"><code>object</code></th>
+							<th style="width:25%;"><code>parent</code></th>
 							<td>
-								<p>An existing <code>Prefab</code> instance to initialize and populate with the loaded hierarchy.</p>
+								<p>An optional parent <code>h2d.Object</code> instance to which prefab adds itself if set.</p>
 							</td>
 						</tr>
 						<tr>
@@ -198,10 +198,33 @@ permalink: /hexe-api/
 			</div>
 			<div class="field "><a name="get"></a>
 				<h3 class="anchor">
-					<code><a href="#get"><span class="identifier">get</span></a>&lt;<span class="type">T</span>&gt;(<span style="white-space:nowrap">n:<a class="type" title="String - The basic String class." href="../String.html">String</a></span>):<a class="type" title="Null - Null&amp;lt;T&amp;gt; is a wrapper that can be used to make the basic types Int, Float and Bool nullable on static targets." href="../Null.html">Null</a>&lt;<span class="type">T</span>&gt;</code>
+					<code>
+						<a href="#get"><span class="identifier">get</span></a>
+						&lt;<span class="type">T</span>:<a class="type" title="h2d.Object" href="../h2d/Object.html">h2d.Object</a>&gt;
+						(<span style="white-space:nowrap">
+							n:<a class="type" title="String - The basic String class." href="../String.html">String</a>,
+							?c:<a class="type" title="Class" href="../Class.html">Class</a>&lt;<span class="type">T</span>&gt;
+						</span>):
+						<a class="type" title="Null - Null&lt;T&gt; is a wrapper that can be used to make the basic types Int, Float and Bool nullable on static targets." href="../Null.html">Null</a>&lt;<span class="type">T</span>&gt;
+					</code>
 				</h3>
 				<div class="doc">
-					<p>Get an object from the prefab hierarchy with the given name <code>n</code>.</p>
+					<p>Get an object from the prefab hierarchy by name. If the optional class <code>c</code> is provided, the returned object is verified to be of that type, returning <code>null</code> if it does not match. If <code>c</code> is not provided, the object is returned directly(unsafe cast).</p>
+					<p class="javadoc">Parameters:</p>
+					<table class="table table-bordered params">
+						<tr>
+							<th style="width:25%;"><code>n</code></th>
+							<td>
+								<p>Name of the object in the hierarchy.</p>
+							</td>
+						</tr>
+						<tr>
+							<th style="width:25%;"><code>c</code></th>
+							<td>
+								<p>Optional class to enforce type checking.</p>
+							</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 			<div class="field "><a name="all"></a>
