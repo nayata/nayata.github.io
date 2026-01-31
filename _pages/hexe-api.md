@@ -157,10 +157,31 @@ permalink: /hexe-api/
 		<div class="fields">
 			<div class="field "><a name="new"></a>
 				<h3 class="anchor">
-					<code><a href="#new"><span class="identifier">new</span></a>(<span style="white-space:nowrap">?parent:<a class="type" title="h2d.Object - A base 2D class that all scene tree elements inherit from." href="https://heaps.io/api/h2d/Object.html">Object</a></span>)</code>
+					<code><a href="#new"><span class="identifier">new</span></a>(<span style="white-space:nowrap">?path:<a class="type" title="String - The basic String class." href="../String.html">String</a>,</span> <span style="white-space:nowrap">?parent:<a class="type" title="h2d.Object - A base 2D class that all scene tree elements inherit from." href="../h2d/Object.html">Object</a>,</span> <span style="white-space:nowrap">?field:<a class="type" title="Array - An Array is a storage for values." href="../Array.html">Array</a>&lt;<a class="type" title="hxe.Field" href="../hxe/Field.html">Field</a>&gt;</span>)</code>
 				</h3>
 				<div class="doc">
-					<p></p>
+					<p>Creates a <code>Prefab</code> instance and loads its visual content from the prefab file at the specified <code>path</code>. The created objects are instantiated and attached to this prefab’s <code>hierarchy</code> using <code>hxe.Lib.make</code>.</p>
+					<p class="javadoc">Parameters:</p>
+					<table class="table table-bordered params">
+						<tr>
+							<th style="width:25%;"><code>path</code></th>
+							<td>
+								<p>Prefab name. Can point to a subfolder and must be without an extension.</p>
+							</td>
+						</tr>
+						<tr>
+							<th style="width:25%;"><code>object</code></th>
+							<td>
+								<p>An existing <code>Prefab</code> instance to initialize and populate with the loaded hierarchy.</p>
+							</td>
+						</tr>
+						<tr>
+							<th style="width:25%;"><code>field</code></th>
+							<td>
+								<p>An optional <code><a href="../hxe/Field.html#Field">Field</a></code> structure to override default values ​​for an object in the prefab hierarchy(text, texture atlas tile. eg: "[{ name : "label", type : "text", value : "new label" }]").</p>
+							</td>
+						</tr>
+					</table>
 				</div>
 			</div>
 		</div>
