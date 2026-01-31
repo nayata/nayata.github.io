@@ -121,7 +121,7 @@ permalink: /hexe-api/
 								<code><span class="label label-static">static</span><a href="#read"><span class="identifier">read</span></a>(<span style="white-space:nowrap">path:<a class="type" title="String - The basic String class." href="../String.html">String</a></span>):<a class="type" title="Data." href="../Data.html">Data</a></code>
 							</h3>
 							<div class="doc">
-								<p>Get json <code>hxe.Lib</code> typedef <code>Data</code> of the Prefab with the given name <code>path</code> from the <code>res</code> folder.</p>
+								<p>Get json <code>hxe.Lib.Data</code> typedef of the Prefab with the given name <code>path</code> from the <code>res</code> folder.</p>
 							</div>
 						</div>
 						<div class="field "><a name="setCache"></a>
