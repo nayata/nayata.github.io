@@ -199,13 +199,7 @@ permalink: /hexe-api/
 			<div class="field "><a name="get"></a>
 				<h3 class="anchor">
 					<code>
-						<a href="#get"><span class="identifier">get</span></a>
-						&lt;<span class="type">T</span>:<a class="type" title="h2d.Object" href="../h2d/Object.html">h2d.Object</a>&gt;
-						(<span style="white-space:nowrap">
-							n:<a class="type" title="String - The basic String class." href="../String.html">String</a>,
-							?c:<a class="type" title="Class" href="../Class.html">Class</a>&lt;<span class="type">T</span>&gt;
-						</span>):
-						<a class="type" title="Null - Null&lt;T&gt; is a wrapper that can be used to make the basic types Int, Float and Bool nullable on static targets." href="../Null.html">Null</a>&lt;<span class="type">T</span>&gt;
+						<a href="#get"><span class="identifier">get</span></a>&lt;<span class="type">T</span>:<a class="type" title="h2d.Object" href="../h2d/Object.html">h2d.Object</a>&gt;(<span style="white-space:nowrap">n:<a class="type" title="String - The basic String class." href="../String.html">String</a>, ?c:<a class="type" title="Class" href="../Class.html">Class</a>&lt;<span class="type">T</span>&gt;</span>):<a class="type" title="Null - Null&lt;T&gt; is a wrapper that can be used to make the basic types Int, Float and Bool nullable on static targets." href="../Null.html">Null</a>&lt;<span class="type">T</span>&gt;
 					</code>
 				</h3>
 				<div class="doc">
