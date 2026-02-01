@@ -11,8 +11,9 @@ permalink: /hexe-lib/
 ### [2. Modify Prefab](#modify-prefab)  
 ### [3. Prefab Hierarchy](#prefab-hierarchy)  
 ### [4. Prefab Make](#prefab-make)  
-### [5. Prefab Bind](#prefab-bind)  
-### [6. Override](#override)  
+### [5. Custom Prefab Class](#custom-prefab-class)  
+### [6. Prefab Bind](#prefab-bind)  
+### [7. Override](#override)  
 
 
 <br>
@@ -77,6 +78,8 @@ In a real game, a prefab is rarely static — you typically want to:
 - or react to game logic and user input.
 
 To do this, you need a way to **access the objects inside the prefab**.
+
+
 <br>
 
 
@@ -184,6 +187,10 @@ var input = button.get("input", h2d.Interactive);
 
 If no class is provided, the object is returned directly using an unsafe cast.
 
+```haxe
+var input:h2d.Interactive = button.get("input");
+```
+
 This makes `get` flexible: you can rely on quick access when you are confident about
 the prefab structure, or enforce strict type safety when needed.
 
@@ -191,6 +198,8 @@ the prefab structure, or enforce strict type safety when needed.
 
 In addition to `get`, `hxe.Prefab` also provides the `typeof` method, which allows you
 to retrieve the actual class type of an object from the prefab hierarchy.
+
+
 <br>
 
 
@@ -284,6 +293,8 @@ class App extends hxd.App {
 ```
 
 **Note**: the last card did not change its text because the prefab `hierarchy` allows only unique object names. As a result, the `cards` array contains only two prefabs - one prefab was overwritten by another prefab with the same name.
+
+
 <br>
 
 
@@ -375,15 +386,28 @@ class Button extends hxe.Prefab {
 <br>
 
 
-# Prefab Bind
+# Custom Prefab Class
 
-If you want to use a prefab and at the same time don't want to change your class - you can use the `bind` method of the `hxe.Lib` library to "inject" the required prefab.
+Prefabs can contain **other prefabs** inside their hierarchy. Such linked prefabs are loaded by the library as regular `hxe.Prefab` instances by default.
+
+However, a linked prefab can also be assigned a **custom class**.
+
+In the previous section, a `Button` class extending `hxe.Prefab` was created. This class can now be reused as part of a more complex UI structure, such as a menu screen.
+
+- Create a new prefab and add **card.prefab** and **button.prefab** to it.
+- Assign the `Button` class to **button.prefab**.
+- Save the new prefab as **ui.prefab**.
+
+![Custom Prefab Class](/media/linked.png "Custom Prefab Class")
+
+When this prefab is loaded, the linked **button.prefab** will be instantiated as a `Button` object instead of a `hxe.Prefab`. This allows the composed prefab to expose
+fully functional, behavior-aware elements while keeping the structure modular and reusable.
 
 ```haxe
 import hxe.Prefab;
 
 class App extends hxd.App {
-	var board:Prefab;
+	var screen:Prefab;
 	var button:Button;
 
 	
@@ -396,30 +420,28 @@ class App extends hxd.App {
 		engine.backgroundColor = 0x222222;
 		hxd.Res.initLocal();
 
-		// Add `board.prefab`
-		board = new Prefab("board", s2d);
-		board.x = s2d.width * 0.5;
-		board.y = s2d.height * 0.5 - 64;
+		// Add `ui.prefab`
+		screen = new Prefab("ui", s2d);
 
-		// new `Button` extending `h2d.Object` instance
-		button = new Button(s2d);
-		button.x = s2d.width * 0.5;
-		button.y = s2d.height - 128;
-
-		// Text and event for button
+		// Get `button.prefab` from `ui`
+		button = screen.get("button");
 		button.onClick = onClick;
-		button.text = "Select";
 	}
 
 
 	function onClick() {
-		var card:Prefab = board.get("grimCard");
-
-		var title:h2d.Text = card.get("title");
-		title.text = title.text == "Grimm" ? "Reaper" : "Grimm";
+		button.text = button.text == "Select" ? "Selected" : "Select";
 	}
 }
 ```
+
+
+<br>
+
+
+# Prefab Bind
+
+If you want to use a prefab and at the same time don't want to change your class - you can use the `bind` method of the `hxe.Lib` library to "inject" the required prefab.
 
 `Button.hx` extending `h2d.Object`
 
